@@ -1,0 +1,325 @@
+<!DOCTYPE html><html><head><title>R: Insurance Company Benchmark</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ICB {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ICB'>Insurance Company Benchmark</h2>
+
+<h3>Description</h3>
+
+<p>This data set used in the CoIL 2000 Challenge contains 
+information on customers of an insurance company. 
+The data consists of 86 variables and includes 
+product usage data and socio-demographic data derived 
+from zip area codes. 
+</p>
+<p>The data was collected to answer 
+the following question: Can you predict who would be 
+interested in buying a caravan insurance policy 
+and give an explanation why?
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ICB1)
+data(ICB2)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ICB1</code> (resp. <code>ICB2</code>) is a data frame of 86 columns (resp. 85) 
+and 5,822 rows (resp. 4,000).
+Each record consists of 86 (resp 85) variables, containing sociodemographic data 
+(variables 1-43) and product ownership (variables 44-86). The sociodemographic 
+data is derived from zip codes. All customers living in areas with the same 
+zip code have the same sociodemographic attributes. Variable 86 (Purchase) 
+indicates whether the customer purchased a caravan insurance policy.
+As <code>ICB2</code> does not have the 86th column, <code>ICB1</code> should be 
+used for training purposes and <code>ICB2</code> for testing purposes. 
+</p>
+<p>Columns are detailed below
+</p>
+
+<dl>
+<dt><code>MOSTYPE</code></dt><dd><p>Customer Subtype see L0</p>
+</dd>                          
+<dt><code>MAANTHUI</code></dt><dd><p>Number of houses 1 - 10</p>
+</dd>                         
+<dt><code>MGEMOMV</code></dt><dd><p>Avg size household 1 - 6</p>
+</dd>                         
+<dt><code>MGEMLEEF</code></dt><dd><p>Avg age see L1</p>
+</dd>                                  
+<dt><code>MOSHOOFD</code></dt><dd><p>Customer main type see L2</p>
+</dd>                       
+<dt><code>MGODRK</code></dt><dd><p>Roman catholic see L3</p>
+</dd>                             
+<dt><code>MGODPR</code></dt><dd><p>Protestant ...</p>
+</dd>                                    
+<dt><code>MGODOV</code></dt><dd><p>Other religion</p>
+</dd>                                    
+<dt><code>MGODGE</code></dt><dd><p>No religion</p>
+</dd>                                       
+<dt><code>MRELGE</code></dt><dd><p>Married</p>
+</dd>                                           
+<dt><code>MRELSA</code></dt><dd><p>Living together</p>
+</dd>                                   
+<dt><code>MRELOV</code></dt><dd><p>Other relation</p>
+</dd>                                    
+<dt><code>MFALLEEN</code></dt><dd><p>Singles</p>
+</dd>                                         
+<dt><code>MFGEKIND</code></dt><dd><p>Household without children</p>
+</dd>                      
+<dt><code>MFWEKIND</code></dt><dd><p>Household with children</p>
+</dd>                         
+<dt><code>MOPLHOOG</code></dt><dd><p>High level education</p>
+</dd>                            
+<dt><code>MOPLMIDD</code></dt><dd><p>Medium level education</p>
+</dd>                          
+<dt><code>MOPLLAAG</code></dt><dd><p>Lower level education</p>
+</dd>                           
+<dt><code>MBERHOOG</code></dt><dd><p>High status</p>
+</dd>                                     
+<dt><code>MBERZELF</code></dt><dd><p>Entrepreneur</p>
+</dd>                                    
+<dt><code>MBERBOER</code></dt><dd><p>Farmer</p>
+</dd>                                          
+<dt><code>MBERMIDD</code></dt><dd><p>Middle management</p>
+</dd>                               
+<dt><code>MBERARBG</code></dt><dd><p>Skilled labourers</p>
+</dd>                               
+<dt><code>MBERARBO</code></dt><dd><p>Unskilled labourers</p>
+</dd>                             
+<dt><code>MSKA</code></dt><dd><p>Social class A</p>
+</dd>                                      
+<dt><code>MSKB1</code></dt><dd><p>Social class B1</p>
+</dd>                                    
+<dt><code>MSKB2</code></dt><dd><p>Social class B2</p>
+</dd>                                    
+<dt><code>MSKC</code></dt><dd><p>Social class C</p>
+</dd>                                      
+<dt><code>MSKD</code></dt><dd><p>Social class D</p>
+</dd>                                      
+<dt><code>MHHUUR</code></dt><dd><p>Rented house</p>
+</dd>                                      
+<dt><code>MHKOOP</code></dt><dd><p>Home owners</p>
+</dd>                                       
+<dt><code>MAUT1</code></dt><dd><p>1 car</p>
+</dd>                                              
+<dt><code>MAUT2</code></dt><dd><p>2 cars</p>
+</dd>                                             
+<dt><code>MAUT0</code></dt><dd><p>No car</p>
+</dd>                                             
+<dt><code>MZFONDS</code></dt><dd><p>National Health Service</p>
+</dd>                          
+<dt><code>MZPART</code></dt><dd><p>Private health insurance</p>
+</dd>                          
+<dt><code>MINKM30</code></dt><dd><p>Income &lt; 30.000</p>
+</dd>                                  
+<dt><code>MINK3045</code></dt><dd><p>Income 30-45.000</p>
+</dd>                                
+<dt><code>MINK4575</code></dt><dd><p>Income 45-75.000</p>
+</dd>                                
+<dt><code>MINK7512</code></dt><dd><p>Income 75-122.000</p>
+</dd>                               
+<dt><code>MINK123M</code></dt><dd><p>Income &gt;123.000</p>
+</dd>                                 
+<dt><code>MINKGEM</code></dt><dd><p>Average income</p>
+</dd>                                   
+<dt><code>MKOOPKLA</code></dt><dd><p>Purchasing power class</p>
+</dd>                          
+<dt><code>PWAPART</code></dt><dd><p>Contribution private third party insurance see L4</p>
+</dd>
+<dt><code>PWABEDR</code></dt><dd><p>Contribution third party insurance (firms) ...</p>
+</dd>   
+<dt><code>PWALAND</code></dt><dd><p>Contribution third party insurane (agriculture)</p>
+</dd>  
+<dt><code>PPERSAUT</code></dt><dd><p>Contribution car policies</p>
+</dd>                       
+<dt><code>PBESAUT</code></dt><dd><p>Contribution delivery van policies</p>
+</dd>               
+<dt><code>PMOTSCO</code></dt><dd><p>Contribution motorcycle/scooter policies</p>
+</dd>         
+<dt><code>PVRAAUT</code></dt><dd><p>Contribution lorry policies</p>
+</dd>                      
+<dt><code>PAANHANG</code></dt><dd><p>Contribution trailer policies</p>
+</dd>                   
+<dt><code>PTRACTOR</code></dt><dd><p>Contribution tractor policies</p>
+</dd>                   
+<dt><code>PWERKT</code></dt><dd><p>Contribution agricultural machines policies </p>
+</dd>      
+<dt><code>PBROM</code></dt><dd><p>Contribution moped policies</p>
+</dd>                        
+<dt><code>PLEVEN</code></dt><dd><p>Contribution life insurances</p>
+</dd>                      
+<dt><code>PPERSONG</code></dt><dd><p>Contribution private accident insurance policies</p>
+</dd>
+<dt><code>PGEZONG</code></dt><dd><p>Contribution family accidents insurance policies</p>
+</dd> 
+<dt><code>PWAOREG</code></dt><dd><p>Contribution disability insurance policies</p>
+</dd>       
+<dt><code>PBRAND</code></dt><dd><p>Contribution fire policies</p>
+</dd>                        
+<dt><code>PZEILPL</code></dt><dd><p>Contribution surfboard policies</p>
+</dd>                  
+<dt><code>PPLEZIER</code></dt><dd><p>Contribution boat policies</p>
+</dd>                      
+<dt><code>PFIETS</code></dt><dd><p>Contribution bicycle policies</p>
+</dd>                     
+<dt><code>PINBOED</code></dt><dd><p>Contribution property insurance policies</p>
+</dd>         
+<dt><code>PBYSTAND</code></dt><dd><p>Contribution social security insurance policies</p>
+</dd> 
+<dt><code>AWAPART</code></dt><dd><p>Number of private third party insurance 1 - 12</p>
+</dd>   
+<dt><code>AWABEDR</code></dt><dd><p>Number of third party insurance (firms) ...</p>
+</dd>      
+<dt><code>AWALAND</code></dt><dd><p>Number of third party insurane (agriculture)</p>
+</dd>     
+<dt><code>APERSAUT</code></dt><dd><p>Number of car policies</p>
+</dd>                          
+<dt><code>ABESAUT</code></dt><dd><p>Number of delivery van policies</p>
+</dd>                  
+<dt><code>AMOTSCO</code></dt><dd><p>Number of motorcycle/scooter policies</p>
+</dd>            
+<dt><code>AVRAAUT</code></dt><dd><p>Number of lorry policies</p>
+</dd>                         
+<dt><code>AAANHANG</code></dt><dd><p>Number of trailer policies</p>
+</dd>                      
+<dt><code>ATRACTOR</code></dt><dd><p>Number of tractor policies</p>
+</dd>                      
+<dt><code>AWERKT</code></dt><dd><p>Number of agricultural machines policies</p>
+</dd>          
+<dt><code>ABROM</code></dt><dd><p>Number of moped policies</p>
+</dd>                           
+<dt><code>ALEVEN</code></dt><dd><p>Number of life insurances</p>
+</dd>                         
+<dt><code>APERSONG</code></dt><dd><p>Number of private accident insurance policies</p>
+</dd>   
+<dt><code>AGEZONG</code></dt><dd><p>Number of family accidents insurance policies</p>
+</dd>    
+<dt><code>AWAOREG</code></dt><dd><p>Number of disability insurance policies</p>
+</dd>          
+<dt><code>ABRAND</code></dt><dd><p>Number of fire policies</p>
+</dd>                           
+<dt><code>AZEILPL</code></dt><dd><p>Number of surfboard policies</p>
+</dd>                     
+<dt><code>APLEZIER</code></dt><dd><p>Number of boat policies</p>
+</dd>                         
+<dt><code>AFIETS</code></dt><dd><p>Number of bicycle policies</p>
+</dd>                        
+<dt><code>AINBOED</code></dt><dd><p>Number of property insurance policies</p>
+</dd>            
+<dt><code>ABYSTAND</code></dt><dd><p>Number of social security insurance policies</p>
+</dd>    
+<dt><code>CARAVAN</code></dt><dd><p>Number of mobile home policies 0 - 1</p>
+</dd>
+</dl>
+
+<p>L0 information: 1 High Income, expensive child, 2 Very Important Provincials, 
+3 High status seniors, 4 Affluent senior apartments, 5 Mixed seniors, 
+6 Career and childcare, 7 Dinki s (double income no kids), 
+8 Middle class families, 9 Modern, complete families, 10 Stable family, 
+11 Family starters, 12 Affluent young families, 13 Young all american 
+family, 14 Junior cosmopolitan, 15 Senior cosmopolitans, 16 Students 
+in apartments, 17 Fresh masters in the city, 18 Single youth, 19 Suburban 
+youth, 20 Etnically diverse, 21 Young urban have-nots, 22 Mixed apartment 
+dwellers, 23 Young and rising, 24 Young, low educated , 25 Young seniors 
+in the city, 26 Own home elderly, 27 Seniors in apartments, 28 Residential 
+elderly, 29 Porchless seniors: no front yard, 30 Religious elderly singles, 
+31 Low income catholics, 32 Mixed seniors, 33 Lower class large families, 
+34 Large family, employed child, 35 Village families, 36 Couples with teens 
+(Married with children), 37 Mixed small town dwellers, 38 Traditional 
+families, 39 Large religous families, 40 Large family farms, 41 Mixed rurals.
+</p>
+<p>L1 information: 1 20-30 years, 2 30-40 years, 3 40-50 years, 4 50-60 years, 
+5 60-70 years, 6 70-80 years.
+</p>
+<p>L2 information: 1 Successful hedonists, 2 Driven Growers, 3 Average Family, 
+4 Career Loners, 5 Living well, 6 Cruising Seniors, 7 Retired and Religeous, 
+8 Family with grown ups, 9 Conservative families, 10 Farmers.
+</p>
+<p>L3 information: 0 0%, 1 1 - 10%, 2 11 - 23%, 3 24 - 36%, 4 37 - 49%, 
+5 50 - 62%, 6 63 - 75%, 7 76 - 88%.
+</p>
+<p>L4 information: 0 0, 1 1 - 49, 2 50 - 99, 3 100 - 199, 4 200 - 499,
+5 500 - 999, 6 1000 - 4999, 7 5000 - 9999, 8 10.000 - 19.999,
+9 20.000 - Inf.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Data is (c) Sentient Machine Research 2000
+</p>
+<p>This dataset is owned and supplied by the 
+Dutch datamining company Sentient Machine 
+Research, and is based on real world business 
+data. You are allowed to use this dataset 
+and accompanying information for NON commercial 
+research and education purposes only. It 
+is explicitly NOT allowed to use this dataset 
+for commercial education or demonstration purposes.
+</p>
+<p><a href="http://kdd.ics.uci.edu/databases/tic/tic.data.html">http://kdd.ics.uci.edu/databases/tic/tic.data.html</a>.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>P. van der Putten and M. van Someren (eds) . 
+CoIL Challenge 2000: The Insurance Company Case. 
+Published by Sentient Machine Research, Amsterdam. 
+Also a Leiden Institute of Advanced Computer Science 
+Technical Report 2000-09. June 22, 2000.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="http://kdd.ics.uci.edu/databases/tic/tic.html">http://kdd.ics.uci.edu/databases/tic/tic.html</a>
+</p>
+<p>There is a special website for this benchmark at 
+<a href="http://www.liacs.nl/~putten/library/cc2000/">http://www.liacs.nl/~putten/library/cc2000/</a>. 
+On this website, you can find an online report featuring 
+29 papers written by participants in the CoIL 
+Challenge 2000 and further background information. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(ICB1)
+dim(ICB1)
+head(ICB1)
+
+summary(ICB1)
+
+data(ICB2)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

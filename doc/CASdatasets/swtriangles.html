@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Switzerland general liability triangles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>swtriangles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='swtriangles'>Switzerland general liability triangles</h2>
+
+<h3>Description</h3>
+
+<p><code>swtri1auto</code> is a named list of two triangles : the incurred (cumulative) amounts
+and the paid (cumulative) amounts.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(swtri1auto)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>swtriangles</code> is a named list of two matrices, respectively for incurred and paid amounts.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Dahms, R. (2008),
+<em>A Loss Reserving Method for Incomplete Claim Data</em>, 
+Bulletin of the Swiss Association of Actuaries, pp. 127-148.
+</p>
+<p>Dahms, R., Merz, M., Wuethrich, M.V. (2009), 
+<em>Claims development result for combined
+claims incurred and claims paid data</em>. Bulletin Francais d'Actuariat 9 (18), 5-39.
+</p>
+<p>Merz, M., and M. V. Wuethrich (2010),
+<em>Paid-Incurred Chain Claims
+Reserving Method</em>, Insurance: Mathematics and Economics
+46, 2010, pp. 568-579,
+<a href="https://doi.org/10.1016/j.insmatheco.2010.02.004">doi:10.1016/j.insmatheco.2010.02.004</a>.
+</p>
+<p>Merz, M., and M. V. Wuethrich (2013), 
+<em>Estimation of Tail Development Factors in the Paid-Incurred Chain
+Reserving Method</em>, Variance 71, pp. 61-73.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(swtri1auto)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

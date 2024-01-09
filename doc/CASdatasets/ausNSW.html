@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Australian Statistics - New South Wales in 2004</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausNSW {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausNSW'>Australian Statistics - New South Wales in 2004</h2>
+
+<h3>Description</h3>
+
+<p>General statistics of Australian drivers in New South Wales in 2004.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ausNSWdriver04)
+data(ausNSWdeath02)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ausNSWdriver04</code> is 2-element list containing the following dataframes.
+</p>
+
+<dl>
+<dt><code>ausNSWdriver04$injury</code></dt><dd>
+<p><code>ausNSWdriver04$injury</code> consists of all drivers involved in a crash in 2004 in New South
+Wales, Australia. There are  a total of 82659 drivers in the data set.
+Drivers with unknown age, age less than 17 years, or road user class &ldquo;Other&quot; are omitted,
+leaving 76341 cases.
+It contains the driver age, the gender, the vehicle class, the
+crash degree, and the observed number of crashes.
+</p>
+</dd>
+<dt><code>ausNSWdriver04$alcohol</code></dt><dd>
+<p><code>ausNSWdriver04$alcohol</code> consists of drivers involved in a crash in 2004 in New South
+Wales, Australia, in which the involvement of blood alcohol concentration (BAC) was known.
+Drivers with unknown age, age less than 17 years, or unknown BAC are omitted, leaving 58890
+cases.
+It contains the driver age, the gender, 
+the blood alcohol concentration (BAC), the
+crash degree, and the observed number of crashes.
+</p>
+</dd>
+</dl>
+
+<p><code>ausNSWdeath02</code> is 2-element list containing the following dataframes.
+</p>
+
+<dl>
+<dt><code>ausNSWdeath02$allcause</code></dt><dd>
+<p><code>ausNSWdeath02$allcause</code> contains all-cause mortality data for New South Wales,
+Australia in 2002, by age band and gender.
+</p>
+</dd>
+<dt><code>ausNSWdeath02$diabete</code></dt><dd>
+<p><code>ausNSWdeath02$diabete</code> contains the number of deaths due to diabetes in
+New South Wales, Australia in 2002, provided by the Australian Institute of
+Health and Welfare, from their mortality database.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Formerly on a website dedicated to P. De Jong and G.Z. Heller (2008).
+</p>
+
+
+
+<h3>References</h3>
+
+<p>P. De Jong and G.Z. Heller (2008),
+<em>Generalized linear models for insurance data</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511755408">doi:10.1017/CBO9780511755408</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) data
+#
+data(ausNSWdriver04)
+data(ausNSWdeath02)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

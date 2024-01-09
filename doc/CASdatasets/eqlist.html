@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>R: Earthquake list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>eqlist {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='eqlist'>Earthquake list</h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains a list of all earthquakes of magnitude 
+greater than 6 between 1900 and 2014.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(eqlist)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>eqlist</code> is a data frame of 16 columns and 1,698 rows:
+</p>
+
+<dl>
+<dt><code>time</code></dt><dd><p>A factor for the time the siesmic event occurred.</p>
+</dd>
+<dt><code>latitude</code></dt><dd><p>A numeric for the latitude of the event, in degrees (negative implies Southern Hemisphere).</p>
+</dd>
+<dt><code>longitude</code></dt><dd><p>A numeric for the longitude of the event, in degrees (negative implies Western Hemisphere).</p>
+</dd>
+<dt><code>depth</code></dt><dd><p>A numeric for the depth of the event, in kilometers.</p>
+</dd>
+<dt><code>mag</code></dt><dd><p>A numeric for the magnitude of the event.</p>
+</dd>
+<dt><code>magType</code></dt><dd><p>A factor for the method used to calculate the magnitude. For a full list of methods used, refer below.</p>
+</dd>
+<dt><code>nst</code></dt><dd><p>An integer for the total number of siesmic stations used to determine the location.</p>
+</dd>
+<dt><code>gap</code></dt><dd><p>A numeric for the largest azimuthal gap between azimuthally adjacent stations, in degrees. In general, smaller gaps indicate better reliability in terms of the horizontal positioning of the event.</p>
+</dd>
+<dt><code>dmin</code></dt><dd><p>A numeric for the horizontal distance between the epicenter of the event and the nearest station, in degrees. One degree is approximately 111.2 kilometers. In general, the smaller the distance, the more reliable is the calculated depth.</p>
+</dd>
+<dt><code>rms</code></dt><dd><p>A numeric for root mean square travel time residual using all weights, in seconds. This measures the fit of the observed arrival times to the predicted arrival times for this location. Smaller numbers reflect a better fit of the data. The value is dependent on the accuracy of the method used to determine location, the quality weights assigned to the arrival time data, and the procedure used to locate the event. </p>
+</dd>
+<dt><code>net</code></dt><dd><p>A factor for the identification number of the information source.</p>
+</dd>
+<dt><code>id</code></dt><dd><p>A factor for the identification number of the event.</p>
+</dd>
+<dt><code>updated</code></dt><dd><p>A factor for the last update.</p>
+</dd>
+<dt><code>place</code></dt><dd><p>A factor for the location of the event, such as the name of the city or island.</p>
+</dd>
+<dt><code>type</code></dt><dd><p>A factor for the type of seismic event. This dataset contains 8,396 earthquakes and 29 explosions.</p>
+</dd>
+<dt><code>day</code></dt><dd><p>A date for the day of the week.</p>
+</dd>
+</dl>
+
+<p>Below are the descriptions of the methods used to calculate the magnitude of siesmic events, <code>magType</code>. See <a href="https://www.usgs.gov/programs/earthquake-hazards/magnitude-types">https://www.usgs.gov/programs/earthquake-hazards/magnitude-types</a> for further technical details:
+</p>
+
+<dl>
+<dt><code>mb</code></dt><dd><p>Short-period body wave magnitude.</p>
+</dd>
+<dt><code>mj</code></dt><dd><p>Richter magnitude.</p>
+</dd>
+<dt><code>ms</code></dt><dd><p>Surface wave magnitude.</p>
+</dd>
+<dt><code>Mt</code></dt><dd><p>Duration magnitude.</p>
+</dd>
+<dt><code>mw</code>, <code>Mw</code>, <code>mww</code>, <code>Mww</code></dt><dd><p>Moment magnitude.</p>
+</dd>
+<dt><code>mwb</code>, <code>Mwb</code></dt><dd><p>Body wave magnitude.</p>
+</dd>
+<dt><code>mwc</code>, <code>Mwc</code></dt><dd><p>Centroid magnitude.</p>
+</dd>
+<dt><code>mwp</code>, <code>Mwp</code></dt><dd><p>Integrated p-wave magnitude.</p>
+</dd>
+<dt><code>mwr</code></dt><dd><p>Regional magnitude.</p>
+</dd>
+<dt><code>uk</code></dt><dd><p>Unknown method.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>Earthquake worldwide archive :
+<a href="https://earthquake.usgs.gov/earthquakes/search/">https://earthquake.usgs.gov/earthquakes/search/</a>.
+</p>
+<p>Methods to calculate the magnitude of siesmic events (<code>magType</code>) :
+<a href="https://www.usgs.gov/programs/earthquake-hazards/magnitude-types">https://www.usgs.gov/programs/earthquake-hazards/magnitude-types</a>.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Young, J.B., Presgrave, B.W., Aichele, H., Wiens, D.A. and Flinn, E.A. (1996),
+<em>The Flinn-Engdahl Regionalisation Scheme: the 1995 revision</em>, 
+Physics of the Earth and Planetary Interiors, v. 96, p. 223-297,
+<a href="https://doi.org/10.1016/0031-9201%2896%2903141-X">doi:10.1016/0031-9201(96)03141-X</a>.
+</p>
+<p>Flinn, E.A., Engdahl, E.R. and Hill, A.R. (1974),
+<em>Seismic and geographical regionalization</em>, 
+Bulletin of the Seismological Society of America, vol. 64, p. 771-993,
+<a href="https://doi.org/10.1785/BSSA0643-20771">doi:10.1785/BSSA0643-20771</a>.
+</p>
+<p>Flinn, E.A., and Engdahl, E.R. (1965),
+<em>A proposed basis for geographical and seismic regionalization</em>, 
+Reviews of Geophysics, vol. 3, p. 123-149,
+<a href="https://doi.org/10.1029/RG003i001p00123">doi:10.1029/RG003i001p00123</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Northern California earthquake archive : <a href="https://earthquaketrack.com/v/norcal/recent">https://earthquaketrack.com/v/norcal/recent</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(eqlist)
+dim(eqlist)
+
+plot(eqlist$day[eqlist$mag &gt; 6.5], eqlist$mag[eqlist$mag &gt; 6.5], pch=".", 
+    xlab="Year", ylab="Magnitude", main="Earthquake above 6.5 mag (worldwide)")
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

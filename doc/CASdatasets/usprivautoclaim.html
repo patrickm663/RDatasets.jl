@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: US Private Auto Claims</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usprivautoclaim {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usprivautoclaim'> US Private Auto Claims </h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains claim amounts for private motor insurance
+from a US property and casualty insurer. 
+Claims that were not closed by the year end are excluded.
+A risk classification is available and is based on driver and vehicle
+characteristics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(usprivautoclaim)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usprivautoclaim</code> contains 5 columns:
+</p>
+
+<dl>
+<dt><code>STATE</code></dt><dd><p>State in US.</p>
+</dd>
+<dt><code>CLASS</code></dt><dd><p>Risk category.</p>
+</dd>
+<dt><code>GENDER</code></dt><dd><p>Gender.</p>
+</dd>
+<dt><code>AGE</code></dt><dd><p>Driver age.</p>
+</dd>
+<dt><code>PAID</code></dt><dd><p>Claim amount.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees, E.W. (2010), 
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Hallin and Ingenbleek (1983),
+<em>The Swedish automobile portfolio in 1977. A statistical study</em>, 
+Scandinavian Actuarial Journal, 49-64,
+<a href="https://doi.org/10.1080/03461238.1983.10408691">doi:10.1080/03461238.1983.10408691</a>.
+</p>
+<p>Andrews and Herzberg (1985),
+<em>Data. A collection of problems from many fields for the student 
+and research worker</em>, Springer-Vedag, New York, pp. 4t3-421,
+<a href="https://doi.org/10.1080/00401706.1987.10488305">doi:10.1080/00401706.1987.10488305</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usprivautoclaim)
+dim(usprivautoclaim)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

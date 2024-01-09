@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>R: US Term Life insurance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ustermlife {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ustermlife'>US Term Life insurance</h2>
+
+<h3>Description</h3>
+
+<p>This dataset comes from Survey of Consumer Finances (SCF), a nationally
+representative sample that contains extensive information on assets, 
+liabilities, income, and demographic characteristics of those sampled 
+(potential U.S. customers).
+It contains a random sample of 500 households with positive incomes that 
+were interviewed in the 2004 survey.
+For term life insurance, the quantity of insurance is measured by 
+the policy face, the amount that the company will pay in the event
+of the death of the named insured. Characteristics include annual 
+income, the number of years of education of the survey respondent 
+and the number of household members.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+data(ustermlife)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ustermlife</code> is a data frame of 15 columns and 384 rows:
+</p>
+
+<dl>
+<dt><code>Gender</code></dt><dd><p>Gender of the survey respondent.</p>
+</dd>
+<dt><code>Age</code></dt><dd><p>Age of the survey respondent.</p>
+</dd>
+<dt><code>MarStat</code></dt><dd><p>Marital status of the survey respondent:
+1 if married, 2 if living with partner, and 0 otherwise.</p>
+</dd>
+<dt><code>Education</code></dt><dd><p>Number of years of education of the 
+survey respondent.</p>
+</dd>
+<dt><code>Ethnicity</code></dt><dd><p>Ethnicity.</p>
+</dd>
+<dt><code>SmarStat</code></dt><dd><p>Marital status of the respondent's spouse.</p>
+</dd>
+<dt><code>Sgender</code></dt><dd><p>Gender of the respondent's spouse.</p>
+</dd>
+<dt><code>Sage</code></dt><dd><p>Age of the respondent's spouse.</p>
+</dd>
+<dt><code>Seducation</code></dt><dd><p>Education of the respondent's spouse.</p>
+</dd>
+<dt><code>NumHH</code></dt><dd><p>Number of household members.</p>
+</dd>
+<dt><code>Income</code></dt><dd><p>Annual income of the family.</p>
+</dd>
+<dt><code>TotIncome</code></dt><dd><p>Total income.</p>
+</dd>
+<dt><code>Charity</code></dt><dd><p>Charitable contributions.</p>
+</dd>
+<dt><code>Face</code></dt><dd><p>Amount that the company will pay in the event 
+of the death of the named insured.</p>
+</dd>
+<dt><code>FaceCVLifePol</code></dt><dd><p>Face amount of life insurance policy with a cash value.</p>
+</dd>
+<dt><code>CashCVLifePol</code></dt><dd><p>Cash value of life insurance policy 
+with a cash value.</p>
+</dd>
+<dt><code>BorrowCVLifePol</code></dt><dd><p>Amount borrowed on life insurance 
+policy with a cash value.</p>
+</dd>
+<dt><code>NetValue</code></dt><dd><p>Net amount at risk on life insurance 
+policy with a cash value.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees, E.W. (2011). 
+<em>Regression Modeling with Actuarial and Financial
+Applications</em>, Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(ustermlife)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

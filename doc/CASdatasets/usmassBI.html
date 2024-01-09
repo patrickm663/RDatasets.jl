@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><title>R: Massachusetts Automobile bodily injury claim datasets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usmassBI {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usmassBI'>Massachusetts Automobile bodily injury claim datasets</h2>
+
+<h3>Description</h3>
+
+<p>The dataset <code>usmassBI</code> contains automobile bodily injury claims collected in
+2001 in Massachusetts, and studied in Frees (2010) and Rempala and Derrig (2005).
+There are 348 records with demographic information, in
+addition to the claim amount.
+Claims that are closed by year end are excluded.
+Potential fraudulent claims are from provider=A.
+</p>
+<p>The dataset <code>usmassBI2</code> contains automobile bodily injury claims collected
+between 1993 and 1998 in Massachusetts, and studied in Frees and Wang (2005).
+This is a sample of 29 Massachusetts towns described in Frees (2003).
+Claim amounts have been rescaled to adjust for the effects of inflation:
+all claims are in 1991 dollars, using the Consumer Price Index (CPI)
+for the rescaling factor.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(usmassBI)
+data(usmassBI2)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usmassBI</code> is a data frame of 8 columns and 1,340 rows:
+</p>
+
+<dl>
+<dt><code>claims</code></dt><dd><p>Claim amount for bodily insurance coverage (in millions of USD).</p>
+</dd>
+<dt><code>provider</code></dt><dd><p>Health care provider is either <code>"A"</code> or <code>"Other"</code>.</p>
+</dd>
+<dt><code>providerA</code></dt><dd><p>Binary variable indicating the presence of <code>"Other"</code> provider.</p>
+</dd>
+<dt><code>logclaims</code></dt><dd><p>Logarithm of claim amount.</p>
+</dd>
+</dl>
+
+<p><code>usmassBI2</code> is a data frame of 5 columns and 174 rows:
+</p>
+
+<dl>
+<dt><code>TOWNCODE</code></dt><dd><p>The index of Massachusetts towns.</p>
+</dd>
+<dt><code>YEAR</code></dt><dd><p>The calendar year of the observation.</p>
+</dd>
+<dt><code>AC</code></dt><dd><p>Average claims per unit of exposure.</p>
+</dd>
+<dt><code>PCI</code></dt><dd><p>Per-capita income of the town.</p>
+</dd>
+<dt><code>PPSM</code></dt><dd><p>Population per square mile of the town.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees, E.W. (2003),
+<em>Multivariate Credibility for Aggregate Loss Models</em>,
+North American Actuarial Journal 7(1), 13-37,
+<a href="https://doi.org/10.1080/10920277.2003.10596074">doi:10.1080/10920277.2003.10596074</a>.
+</p>
+<p>Frees, E.W. (2010),
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Frees, E.W. and Wang, P. (2005),
+<em>Credibility using copulas</em>,
+North American Actuarial Journal, 9(2), 31-48,
+<a href="https://doi.org/10.1080/10920277.2005.10596196">doi:10.1080/10920277.2005.10596196</a>.
+</p>
+<p>Rempala, G.A., and R.A. Derrig (2005),
+<em>Modeling hidden exposures in claim severity via the EM algorithm</em>, 
+North American Actuarial Journal 9(2), 108-128,
+<a href="https://doi.org/10.1080/10920277.2005.10596206">doi:10.1080/10920277.2005.10596206</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usmassBI)
+dim(usmassBI)
+head(usmassBI)
+
+
+# (1) load of data
+#
+data(usmassBI2)
+dim(usmassBI2)
+head(usmassBI2)
+
+# summary tables
+sapply(levels(usmassBI2$TOWNCODE), function(x) summary(subset(usmassBI2, TOWNCODE == x)$AC))
+sapply(unique(usmassBI2$YEAR), function(x) summary(subset(usmassBI2, YEAR == x)$AC))
+
+#plot average claims
+plot(AC~YEAR, data=usmassBI2)
+for(i in usmassBI2$TOWNCODE) lines(AC~YEAR, data=subset(usmassBI2, TOWNCODE== i), col=i)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: US workers compensation datasets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usworkcomp {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usworkcomp'>US workers compensation datasets</h2>
+
+<h3>Description</h3>
+
+<p>The dataset <code>usworkcomp</code> is originally from the National Council on 
+Compensation Insurance
+and was examined by Klugman (1992), Frees et al. (2001) and 
+Frees (2011). 
+This database contains records of losses due to permanent or partial 
+disability claims for workers compensation insurance in US. 
+For each claim amount, the payroll is available as 
+a measure of exposure units.
+A total of 847 data points is available coming from the observation of
+121 risk classes over 7 years.
+</p>
+<p>The dataset <code>usworkcomptri8807</code> comes from an unknown US insurer:
+this reserve triangle was used in Lacoume (2007).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+data(usworkcomp)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usworkcomp</code> is a data frame of 4 columns and 847 rows:
+</p>
+
+<dl>
+<dt><code>CL</code></dt><dd><p>Occupation class identifier, 1-124.</p>
+</dd>
+<dt><code>YR</code></dt><dd><p>Year identifier, 1-7.</p>
+</dd>
+<dt><code>PR</code></dt><dd><p>Payroll, a measure of exposure to loss, 
+in dollars.</p>
+</dd>
+<dt><code>LOSS</code></dt><dd><p>Losses related to permanent partial 
+disability, in dollars.</p>
+</dd>
+</dl>
+
+<p><code>usworkcomptri8807</code> is a reserve triangle with 21 development years  
+and 20 accident years.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Klugman, S.A. (1992). 
+<em>Bayesian Statistics in Actuarial Science</em>, 
+Kluwer, Boston,
+<a href="https://doi.org/10.1007/978-94-017-0845-6">doi:10.1007/978-94-017-0845-6</a>.
+</p>
+<p>Frees, E.W. and Young, V.R. and Luo, Y. (2001),
+<em>Case studies using panel data models</em>,
+North American Actuarial Journal, 5, 24-42,
+<a href="https://doi.org/10.1080/10920277.2001.10596010">doi:10.1080/10920277.2001.10596010</a>.
+</p>
+<p>Lacoume, A. (2007),
+<em>Mesure du risque de reserve sur un horizon de un an</em>,
+Actuary memoir, ISFA.
+</p>
+<p>Frees, E.W. (2011). 
+<em>Regression Modeling with Actuarial and Financial
+Applications</em>, Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usworkcomp)
+
+
+# Table 3 of Fres et al. (2001)
+# (in million USD)
+
+t(sapply(unique(usworkcomp$YR), 
+	function(y) summary( subset(usworkcomp, YR == y)[,"PR"] / 10^6 )))
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

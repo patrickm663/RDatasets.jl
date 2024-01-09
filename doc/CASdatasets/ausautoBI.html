@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Automobile bodily injury claim dataset in Australia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausautoBI8999 {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausautoBI8999'>Automobile bodily injury claim dataset in Australia</h2>
+
+<h3>Description</h3>
+
+<p>This data set contains information on 22036 settled personal
+injury insurance claims in Australia. These claims arose from accidents occurring
+from July 1989 through to  January 1999. Claims settled with zero
+payment are not included.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ausautoBI8999)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ausautoBI8999</code> is a data frame of 8 columns and 1,340 rows:
+</p>
+
+<dl>
+<dt><code>AccDate</code>, <code>ReportDate</code>, <code>FinDate</code></dt><dd><p>The accident date, the reporting date,
+the finalization date, note that the day is always set to the first day of the month.</p>
+</dd>
+<dt><code>AccMth</code>, <code>ReportMth</code>, <code>FinMth</code></dt><dd><p>The accident month, the reporting month,
+the finalization month: 1 = July 1989, ..., 120 = June 1999).</p>
+</dd>
+<dt><code>OpTime</code></dt><dd><p>The operational time.</p>
+</dd>
+<dt><code>InjType1</code>, <code>InjType2</code>, <code>InjType3</code>, <code>InjType4</code>, <code>InjType5</code></dt><dd><p>The injury
+code for the people injured (up to five).</p>
+</dd>
+<dt><code>InjNb</code></dt><dd><p>Number of injured people.</p>
+</dd>
+<dt><code>Legal</code></dt><dd><p>A character string for: Has the policyholder a legal representation?</p>
+</dd>
+<dt><code>AggClaim</code></dt><dd><p>Aggregate settled amount of claims.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Formerly on a website dedicated to P. De Jong and G.Z. Heller (2008).
+</p>
+
+
+
+<h3>References</h3>
+
+ 
+<p>P. De Jong and G.Z. Heller (2008),
+<em>Generalized linear models for insurance data</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511755408">doi:10.1017/CBO9780511755408</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(ausautoBI8999)
+dim(ausautoBI8999)
+head(ausautoBI8999)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

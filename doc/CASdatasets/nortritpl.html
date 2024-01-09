@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Australian liabilty insurance triangles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>nortritpl8800 {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nortritpl8800'>Australian liabilty insurance triangles</h2>
+
+<h3>Description</h3>
+
+<p>Dataset <code>nortritpl8800</code> contains claim triangles from a Norwegian non-life
+insurer between 1988 and 2000 for bodily injuries.
+<code>nortritpl8800</code> is a list of 5 elements : a triangle of claim counts by
+the sum of reporting and valuation delay,
+a triangle of claim payments by the sum of reporting and valuation delay,
+a triangle of reported incurred claims by the sum of reporting and valuation delay,
+a triangle of claim payments by valuation delay,
+a triangle of reported incurred claims by valuation delay.
+Values are cumulated amounts.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+#1st Line of Business
+data(nortritpl8800)
+
+
+
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>nortritpl8800$countbyrepdel</code>,
+<code>nortritpl8800$paidbyrepdel</code>,
+<code>nortritpl8800$incurbyrepdel</code> contain the insurance triangles by reporting+valuation delay.
+<code>nortritpl8800$paidbydel</code>,
+<code>nortritpl8800$incurbydel</code> contains the insurance triangles by valuation delay.
+</p>
+
+
+<h3>References</h3>
+
+<p>W. Neuhaus (2004),
+<em>On the Estimation of Outstanding Claims</em>,
+Australian Actuarial Journal, 10, 485-518.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+
+
+#1st Line of Business
+data(nortritpl8800)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

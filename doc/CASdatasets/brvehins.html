@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><title>R: Two Brazilian datasets for vehicle insurance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>brvehins {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='brvehins'> Two Brazilian datasets for vehicle insurance</h2>
+
+<h3>Description</h3>
+
+<p><code>brvehins1</code>'s , <code>brvehins2</code>'s are dataframes containing policy data based on the AUTOSEG
+(an acronym for Statistical System for Automobiles) and can be accessed
+online (<a href="www2.susep.gov.br/menuestatistica/Autoseg">www2.susep.gov.br/menuestatistica/Autoseg</a>, accessed February 2013).
+Each record includes risk features, claim amount and claim history for year 2011.
+The dataset <code>brvehins1</code> of 1,965,355 vehicle insurance policies has
+been splitted (randomly) in five datasets of 393,071 policies : <code>brvehins1a</code>,
+<code>brvehins1b</code>, <code>brvehins1c</code>, <code>brvehins1d</code>, <code>brvehins1e</code>.
+The dataset <code>brvehins2</code> of 2,667,752 policies has also been splitted
+(randomly) in four datasets of 666,938 policies : <code>brvehins2a</code>,
+<code>brvehins2b</code>, <code>brvehins2c</code>, <code>brvehins2d</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(brvehins1a)
+data(brvehins1b)
+data(brvehins1c)
+data(brvehins1d)
+data(brvehins1e)
+
+data(brvehins2a)
+data(brvehins2b)
+data(brvehins2c)
+data(brvehins2d)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+<p><code>brvehins1</code>'s contains 23 columns:
+</p>
+
+<dl>
+<dt>Gender</dt><dd><p>A character string (<code>"factor"</code>) for the gender (also indicate corporate policies).</p>
+</dd>
+<dt>DrivAge</dt><dd><p>A character string (<code>"factor"</code>) for the driver age group.</p>
+</dd>
+<dt>VehYear</dt><dd><p>A numeric for the vehicle year.</p>
+</dd>
+<dt>FullVehCode</dt><dd><p>A character string (<code>"factor"</code>) for the full vehicle code.</p>
+</dd>
+<dt>VehCode</dt><dd><p>A character string (<code>"factor"</code>) for the vehicle group.</p>
+</dd>
+<dt>Area</dt><dd><p>Local area name (<code>"factor"</code>).</p>
+</dd>
+<dt>State</dt><dd><p>A character string for the state name (<code>"factor"</code>).</p>
+</dd>
+<dt>StateAb</dt><dd><p>Abbreviated state name (<code>"factor"</code>).</p>
+</dd>
+<dt>ExposTotal</dt><dd><p>Total exposure</p>
+</dd>
+<dt>ExposFireRob</dt><dd><p>Exposure for fire and robbery guarantees.</p>
+</dd>
+<dt>PremTotal</dt><dd><p>Total premium.</p>
+</dd>
+<dt>PremFireRob</dt><dd><p>Premium for fire and robbery guarantees.</p>
+</dd>
+<dt>SumInsAvg</dt><dd><p>Average of sum insured.</p>
+</dd>
+<dt>ClaimNbRob,ClaimNbPartColl,ClaimNbTotColl,ClaimNbFire,ClaimNbOther</dt><dd><p>Number of
+claims during the exposure period, respectively for robbery, partial collision,
+total collision, fire and other guarantees.</p>
+</dd>
+<dt>ClaimAmountRob,ClaimAmountPartColl,ClaimAmountTotColl,ClaimAmountFire,ClaimAmountOther</dt><dd><p>Claim
+amounts during the exposure period, respectively for robbery, partial collision,
+total collision, fire and other guarantees.</p>
+</dd>
+</dl>
+
+<p><code>brvehins2</code>'s contains 18 columns:
+</p>
+
+<dl>
+<dt>VehYear</dt><dd><p>A numeric for the vehicle year.</p>
+</dd>
+<dt>FullVehCode</dt><dd><p>A character string (<code>"factor"</code>) for the full vehicle code.</p>
+</dd>
+<dt>VehCode</dt><dd><p>A character string (<code>"factor"</code>) for the vehicle group.</p>
+</dd>
+<dt>City</dt><dd><p>A character string (<code>"factor"</code>) for the city name.</p>
+</dd>
+<dt>CityCode</dt><dd><p>A numeric for the city code.</p>
+</dd>
+<dt>Area</dt><dd><p>Local area name (<code>"factor"</code>).</p>
+</dd>
+<dt>State</dt><dd><p>A character string (<code>"factor"</code>) for the state name.</p>
+</dd>
+<dt>StateAb</dt><dd><p>Abbreviated state name (<code>"factor"</code>).</p>
+</dd>
+<dt>ExposTotal</dt><dd><p>Total exposure</p>
+</dd>
+<dt>PremTotal</dt><dd><p>Total premium.</p>
+</dd>
+<dt>ClaimNbRob,ClaimNbColl,ClaimNbFire,ClaimNbOther</dt><dd><p>Number of
+claims during the exposure period, respectively for robbery, (partial and total) collision,
+fire and other guarantees.</p>
+</dd>
+<dt>ClaimAmountRob,ClaimAmountColl,ClaimAmountFire,ClaimAmountOther</dt><dd><p>Claim
+amounts during the exposure period, respectively for robbery, (partial and
+total) collision, fire and other guarantees.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p><a href="www2.susep.gov.br/menuestatistica/Autoseg">www2.susep.gov.br/menuestatistica/Autoseg</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## Not run: 
+
+# (1) load of data
+#
+data(brvehins1a)
+dim(brvehins1a)
+sapply(brvehins1a, class)
+str(brvehins1a)
+
+data(brvehins2a)
+dim(brvehins2a)
+sapply(brvehins2a, class)
+str(brvehins2a)
+
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

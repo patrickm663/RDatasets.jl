@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><title>R: US general liability triangles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usGLtriangles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usGLtriangles'>US general liability triangles</h2>
+
+<h3>Description</h3>
+
+<p><code>usreGL8190</code> comes from the 1991 edition of the Historical Loss 
+Development Study published by the Reinsurance Association of American (page 91).
+This dataset has been used  by Mack (1994) and  by England and Verrall (2002).
+These data are from automatic facultative reinsurance business in 
+general liability (excluding asbestos and environmental) coverages  
+for years 1981-1990.
+Under a facultative basis, each risk is underwritten by the reinsurer 
+on its own merits.
+</p>
+<p><code>usreGL8700</code> comes from the 2001 edition of the Historical Loss.
+This dataset has been used by Braun (2004).
+These data are from reinsurance business for
+general liability coverages for years 1987-2000 and
+contain cumulative incurred amounts in thousands of US dollars.
+</p>
+<p><code>ustri1fire</code> is a list of two triangles for fire insurance (one
+for incurred amounts and the other for paid amounts) from Quard and Mack (2008).
+</p>
+<p><code>ustri2GL</code> is a list of three triangles for three line-of-business:
+commercial automobile businesses, homeowners, workers' compensation from
+Kirschner, Kerley and Isaacs (2002). These are cumulative paid amounts
+in thousands of dollars.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(usreGL8700)
+data(usreGL8190)
+data(ustri1fire)
+data(ustri2GL)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usreGL8700</code> and <code>usreGL8190</code> are two matrices 
+containing insurance triangles.
+<code>ustri1fire</code>, <code>ustri2GL</code> are named lists.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Braun, C. (2004),
+<em>The prediction error of the chain ladder method 
+applied to correlated run-off triangles</em>,
+ASTIN Bulletin 34, no. 2, 399-423,
+<a href="https://doi.org/10.1017/S0515036100013751">doi:10.1017/S0515036100013751</a>.
+</p>
+<p>England, P.D., and R.J. Verrall (2002),
+<em>Stochastic claims reserving in general insurance</em>, 
+British Actuarial Journal 8, 443-544,
+<a href="https://doi.org/10.1017/S1357321700003809">doi:10.1017/S1357321700003809</a>.
+</p>
+<p>Frees, E.W. (2010), 
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Mack, T. (1994),
+<em>Measuring the variability of chain-ladder reserve estimates</em>,
+Casualty Actuarial Society, Spring Forum, Arlington, Virginia.
+</p>
+<p>Quard, G. and Mack, T. (2008), 
+<em>Munich Chain Ladder: a reserving method that reduces the gap between
+IBNR projections based on paid losses and IBNR projections based on incurred losses</em>,
+Variance, Volume 2, Issue 2.
+</p>
+<p>Kirschner, G.S., Kerley C. and Isaacs B. (2002), 
+<em>Two approaches to calculating correlated reserves indicators
+across multiple lines of business</em>, CAS forum fall.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usreGL8700)
+data(usreGL8190)
+
+data(ustri1fire)
+data(ustri2GL)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html><html><head><title>R: Australian Market - non-life insurance (LLoyds insurance...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausNLHYlloyd {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausNLHYlloyd'>Australian Market - non-life insurance (LLoyds insurance business)</h2>
+
+<h3>Description</h3>
+
+<p>Financial performance and financial position of insurers operating 
+in Australia between 2005 and 2010 (LLoyds insurance business).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+data(ausNLHYLloydAsset)
+data(ausNLHYLloydGPI)
+data(ausNLHYLloydUWAcc)
+data(ausNLHYLloydUWRes)
+
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ausNLHYLloydUWAcc</code> (Table 15) and <code>ausNLHYLloydUWAcc</code> (Table 16)
+are data frames of 4 columns (values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>AccYear2YrAgoYYYYMM</code>: value in the 2-year-ago accounting year 
+in year <code>YYYY</code> reported in December.             
+</p>
+</li>
+<li><p><code>AccYear1YrAgoYYYYMM</code>: value in the 1-year-ago accounting year  
+in year <code>YYYY</code> reported in December.             
+</p>
+</li>
+<li><p><code>AccYear0YrAgoYYYYMM</code>: value in the current accounting year  
+in year <code>YYYY</code> reported in December.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM=12</code>, 
+e.g. <code>200512</code>.
+</p>
+<p><code>ausNLHYLloydGPI</code> (Table 17) is a data frame of 4 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>DirectYYYYMM</code>: Direct premiums (gross) including inward faculative reinsurance
+in year <code>YYYY</code> reported in December.             
+</p>
+</li>
+<li><p><code>InwardYYYYMM</code>: Inward treaty reinsurance premiums (gross) in year <code>YYYY</code> 
+reported in December.             
+</p>
+</li>
+<li><p><code>TotalYYYYMM</code>: Total premium income (gross) in year <code>YYYY</code> 
+reported in December.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM=12</code>, 
+e.g. <code>200512</code>.
+</p>
+<p><code>ausNLHYLloydAsset</code> (Table 18) is a data frame of 4 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>TrustFundYYYYMM</code>: Lloyds Australia trust fund in year <code>YYYY</code> 
+reported in December.             
+</p>
+</li>
+<li><p><code>AssetFund1.YYYYMM</code>: Lloyds Australia joint asset fund No.1 in year <code>YYYY</code> 
+reported in December.             
+</p>
+</li>
+<li><p><code>AssetFund2.YYYYMM</code>: Lloyds Australia joint asset fund No.2 in year <code>YYYY</code> 
+reported in December.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM=12</code>, 
+e.g. <code>200512</code>.
+</p>
+
+
+<h3>Details</h3>
+
+<p>It is not possible to compare Lloyd's with authorised companies. 
+Lloyd's operates a unique three year accounting system that differs 
+substantially from normal practices. Different classes of business are also used.
+</p>
+<p>The individual syndicates, which are members of the Lloyd's market, are independent 
+entities which are supervised by the Financial Services Authority (FSA) in the UK not 
+by APRA. However, for the protection of policy holders in Australia, Lloyd's is 
+required to maintain trust funds in Australia (refer to Lloyd's Assets Table 18).
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Data is copyrighted by Australian Prudential Regulation Authority (APRA)
+and is under the Creative Commons - By licence. Please refer to
+<a href="https://www.apra.gov.au/">https://www.apra.gov.au/</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ausNLHYby</code> for company, state, public level,
+<code>ausNLHYtotal</code> for aggregate level and
+<code>ausNLHYglossary</code> for glossary notes.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) lloyds data
+#
+data(ausNLHYLloydAsset)
+data(ausNLHYLloydGPI)
+data(ausNLHYLloydUWAcc)
+data(ausNLHYLloydUWRes)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

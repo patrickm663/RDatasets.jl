@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: UK Automobile Collision Claims</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ukautocoll {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ukautocoll'> UK Automobile Collision Claims </h2>
+
+<h3>Description</h3>
+
+<p>The data give the average claims and claim counts 
+for insured vehicles in UK.
+Averages are given in pounds sterling adjusted for inflation.
+The datasets contains 32 observations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ukautocoll)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ukautocoll</code> contains 5 columns:
+</p>
+
+<dl>
+<dt><code>Age</code></dt><dd><p>Policy-holder's age in years, categorized into 8 levels.</p>
+</dd>
+<dt><code>Model</code></dt><dd><p>Type of car, in 4 groups.</p>
+</dd>
+<dt><code>CarAge</code></dt><dd><p>Vehicle age in years, categorized into 4 levels.</p>
+</dd>
+<dt><code>NClaims</code></dt><dd><p>Number of claims.</p>
+</dd>
+<dt><code>AveCost</code></dt><dd><p>Average cost of each claim in pounds.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>The original dataset was provided by Baxter et al. (1980),
+then used in McCullagh and Nelder (1989) and Mildenhall (1999)
+It is also available at <a href="http://www.statsci.org/data/general/carinsuk.html">http://www.statsci.org/data/general/carinsuk.html</a>.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Baxter, L. A., Coutts, S. M., and Ross, G. A. F. (1980). 
+<em>Applications of linear models in motor insurance</em>. 
+In Proceedings of the 21st International Congress of Actuaries, 
+Zurich, Society of Actuaries, pages 11-29.
+</p>
+<p>McCullagh, P., and Nelder, J. A. (1989). 
+<em>Generalized linear models</em>. Chapman and Hall, London.
+</p>
+<p>Mildenhall, S. J. (1999).
+<em>A systematic relationship between minimum bias and 
+generalized linear models.</em> 
+Casualty Actuarial Society Proceedings 86, 393-487, Casualty Actuarial Society. Arlington, Virginia.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(ukautocoll)
+dim(ukautocoll)
+
+# (2) summary
+#
+sapply(1:NCOL(ukautocoll), function(i) summary(ukautocoll[,i]))
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

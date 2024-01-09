@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Davis dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>Davis {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Davis'>Davis dataset</h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains information of 200 individuals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(Davis)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>data</code> is a data frame of 5 columns and 200 rows:
+</p>
+
+<dl>
+<dt><code>sex</code></dt><dd><p>a factor: <code>M</code> for male and <code>F</code> for female.</p>
+</dd>
+<dt><code>weight</code></dt><dd><p>a numeric for the weight in Kg.</p>
+</dd>
+<dt><code>height</code></dt><dd><p>a numeric for the height in cm.</p>
+</dd>
+<dt><code>reportedWeight</code></dt><dd><p>a numeric for the weight in Kg.</p>
+</dd>
+<dt><code>reportedHeight</code></dt><dd><p>a numeric for the height in cm.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://socialsciences.mcmaster.ca/jfox/Books/Applied-Regression-2E/datasets/Davis.txt">https://socialsciences.mcmaster.ca/jfox/Books/Applied-Regression-2E/datasets/Davis.txt</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Davis (1990) <em>Body image and weight preoccupation: 
+A comparison between exercising and non-exercising women</em>, 
+Appetite, 15, 13-21,
+<a href="https://doi.org/10.1016/0195-6663%2890%2990096-q">doi:10.1016/0195-6663(90)90096-q</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(Davis)
+dim(Davis)
+head(Davis)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

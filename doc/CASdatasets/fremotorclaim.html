@@ -1,0 +1,313 @@
+<!DOCTYPE html><html><head><title>R: French claims for private motor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>fremotorclaim {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='fremotorclaim'> French claims for private motor </h2>
+
+<h3>Description</h3>
+
+<p>Datasets <code>fremotor1freq0304a/b/c</code>, <code>fremotor1sev0304a/b/c</code>, <code>fremotor1prem0304a/b/c</code>
+are nine datasets from the same database of an unknown private motor 
+portfolio observed between January 2003 and December 2004, 
+respectively claim frequency databases, 
+claim severity databases and premium databases. 
+The last letter <code>a</code>, <code>b</code> or <code>c</code> distinguishes the random sampling for a
+given dataset series. Note that some records are common between resampling versions.
+</p>
+<p>Datasets <code>fremotor1freq0304a/b/c</code> consist of 64,234 records
+with explanatory variables for policies (possibly with mutiple vehicles 
+insured under the same policy number).
+Datasets <code>fremotor1prem0304a/b/c</code> consist of 51,949 records 
+of claim numbers (by policy) in 2003 and 2004.
+Datasets <code>fremotor1sev0304a/b/c</code> consist of 9,246 records 
+of ClaimAmount, their occurence date, the corresponding guarantee,
+in 2003 and 2004.
+</p>
+<p>Datasets
+<code>fremotor2sev9907</code>,
+<code>fremotor3sev9907</code>,
+<code>fremotor4sev9907</code>,
+and 
+<code>fremotor2freq9907u</code>,
+<code>fremotor3freq9907u</code>,
+<code>fremotor4freq9907u</code>,
+<code>fremotor2freq9907b</code>,
+<code>fremotor3freq9907b</code>,
+<code>fremotor4freq9907b</code>
+are claim severities and claim frequencies coming
+from the same database for a private motor 
+portfolio observed between 1999 and 2007.
+For size reason, the database has been splitted into 
+three parts <code>fremotor2***9907</code>,
+<code>fremotor3***9907</code>,
+<code>fremotor4***9907</code>.
+Furthermore, the claim frequencies are available on
+two different formats : longitudinal unbalanced data
+and longitudinal balanced data, respectively <code>fremotor2freq9907u</code>
+and <code>fremotor2freq9907b</code>.
+The policy number is only available for claim frequencies:
+it is impossible to match claim severities and claim frequencies.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(fremotor1prem0304a)
+data(fremotor1prem0304b)
+data(fremotor1prem0304c)
+
+data(fremotor1freq0304a)
+data(fremotor1freq0304b)
+data(fremotor1freq0304c)
+
+data(fremotor1sev0304a)
+data(fremotor1sev0304b)
+data(fremotor1sev0304c)
+
+
+data(fremotor2sev9907)
+data(fremotor3sev9907)
+data(fremotor4sev9907)
+
+data(fremotor2freq9907u)
+data(fremotor3freq9907u)
+data(fremotor4freq9907u)
+data(fremotor2freq9907b)
+data(fremotor3freq9907b)
+data(fremotor4freq9907b)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+<p><code>fremotor1prem0304a/b/c</code> contain 30 columns:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy ID (used to link with the claims dataset).</p>
+</dd>
+<dt><code>DrivAge</code></dt><dd><p>The driver age, in years (in France, people can drive a car at 18).</p>
+</dd>
+<dt><code>DrivGender</code></dt><dd><p>The gender (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>MaritalStatus</code></dt><dd><p>The marital status (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>BonusMalus</code></dt><dd><p>Bonus/malus, between 50 and 350:
+&lt;100 means bonus, &gt;100 means malus in France.</p>
+</dd>
+<dt><code>LicenceNb</code></dt><dd><p>The licence nunmber (at least one).</p>
+</dd>
+<dt><code>PayFreq</code></dt><dd><p>The payment frequency (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>JobCode</code></dt><dd><p>The job code (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>VehAge</code></dt><dd><p>The vehicle age, in years.</p>
+</dd>
+<dt><code>VehClass</code></dt><dd><p>The vehicle class (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>VehPower</code></dt><dd><p>The vehicle power (as <code>"factor"</code>) 
+from least powerful <code>"P2"</code> to most powerful car <code>"P15"</code>.</p>
+</dd>
+<dt><code>VehGas</code></dt><dd><p>The car gas, Diesel or regular (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>VehUsage</code></dt><dd><p>The vehicle usage (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>Garage</code></dt><dd><p>The type of garage (as <code>"factor"</code>).</p>
+</dd>
+<dt><code>Area</code></dt><dd><p>The area code (as <code>"factor"</code>): unknown category.</p>
+</dd>
+<dt><code>Region</code></dt><dd><p>The policy regions in France
+(based on a standard French classification).</p>
+</dd>
+<dt><code>Channel</code></dt><dd><p>The channel distribution code 
+(as <code>"factor"</code>): unknown category.</p>
+</dd>
+<dt><code>Marketing</code></dt><dd><p>The marketing code
+(as <code>"factor"</code>): unknown category.</p>
+</dd>
+<dt><code>PremWindscreen</code></dt><dd><p>The premium for windscreen guarantee (annual basis).</p>
+</dd>
+<dt><code>PremDamAll</code></dt><dd><p>The premium for damage all-accident guarantee (annual basis).</p>
+</dd>
+<dt><code>PremFire</code></dt><dd><p>The premium for fire guarantee (annual basis).</p>
+</dd>
+<dt><code>PremAcc1</code></dt><dd><p>The premium for type-1 accident guarantee (annual basis).</p>
+</dd>
+<dt><code>PremAcc2</code></dt><dd><p>The premium for type-2 accident guarantee (annual basis).</p>
+</dd>
+<dt><code>PremLegal</code></dt><dd><p>The premium for legal protection guarantee (annual basis).</p>
+</dd>
+<dt><code>PremTPLM</code></dt><dd><p>The premium for mandatory third-part liability guarantee (annual basis).</p>
+</dd>
+<dt><code>PremTPLV</code></dt><dd><p>The premium for voluntary third-part liability guarantee (annual basis).</p>
+</dd>
+<dt><code>PremServ</code></dt><dd><p>The premium for service guarantee (annual basis).</p>
+</dd>
+<dt><code>PremTheft</code></dt><dd><p>The premium for theft guarantee (annual basis).</p>
+</dd>
+<dt><code>PremTot</code></dt><dd><p>The total premium (annual basis).</p>
+</dd>
+<dt><code>Year</code></dt><dd><p>Numeric for the year.</p>
+</dd>
+</dl>
+
+<p><code>fremotor1freq0304a/b/c</code> contain 6 columns:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy ID.</p>
+</dd>
+<dt><code>Year</code></dt><dd><p>The underwriting year.</p>
+</dd>
+<dt><code>Damage</code></dt><dd><p>The claim number for the Damage guarantee.</p>
+</dd>
+<dt><code>Fire</code></dt><dd><p>The claim number for the Fire guarantee.</p>
+</dd>
+<dt><code>Other</code></dt><dd><p>The claim number for the Other guarantee.</p>
+</dd>
+<dt><code>Theft</code></dt><dd><p>The claim number for the Theft guarantee.</p>
+</dd>
+<dt><code>TPL</code></dt><dd><p>The claim number for the TPL guarantee.</p>
+</dd>
+<dt><code>Windscreen</code></dt><dd><p>The claim number for the Windscreen guarantee.</p>
+</dd>
+</dl>
+
+<p><code>fremotor1sev0304a/b/c</code> contain 6 columns:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy ID.</p>
+</dd>
+<dt><code>OccurDate</code></dt><dd><p>The occurence date.</p>
+</dd>
+<dt><code>Payment</code></dt><dd><p>The amount of money paid.</p>
+</dd>
+<dt><code>IDclaim</code></dt><dd><p>The claim ID.</p>
+</dd>
+<dt><code>Guarantee</code></dt><dd><p>The corresponding guarantee of the claim.</p>
+</dd>
+</dl>
+
+<p><code>fremotor2sev9907</code>,
+<code>fremotor3sev9907</code>,
+<code>fremotor4sev9907</code> contains 3 columns:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>The occurence year.</p>
+</dd>
+<dt><code>NbClaim</code></dt><dd><p>The number of claims aggregated, mostly 1.</p>
+</dd>
+<dt><code>ClaimAmount</code></dt><dd><p>The aggregate charge (i.e. expected claim amount).</p>
+</dd>
+</dl>
+
+<p><code>fremotor2freq9907u</code>,
+<code>fremotor3freq9907u</code>,
+<code>fremotor4freq9907u</code> contains 23 columns:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy ID.</p>
+</dd>
+<dt><code>Usage</code></dt><dd><p>The usage (unknown category).</p>
+</dd>
+<dt><code>VehType</code></dt><dd><p>The vehicle type (unknown category).</p>
+</dd>
+<dt><code>VehPower</code></dt><dd><p>The vehicle power (unknown category).</p>
+</dd>
+<dt><code>NbYear</code></dt><dd><p>The number of years under exposure.</p>
+</dd>
+<dt><code>NbClaimXXXX</code></dt><dd><p>The number of claims for year <code>XXXX</code>.</p>
+</dd>
+<dt><code>ExpoXXXX</code></dt><dd><p>The exposure for year <code>XXXX</code>.</p>
+</dd>
+</dl>
+
+<p><code>fremotor2freq9907b</code>,
+<code>fremotor3freq9907b</code>,
+<code>fremotor4freq9907b</code> contains 7 columns:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy ID.</p>
+</dd>
+<dt><code>Year</code></dt><dd><p>The year.</p>
+</dd>
+<dt><code>NbClaim</code></dt><dd><p>The number of claims.</p>
+</dd>
+<dt><code>Expo</code></dt><dd><p>The exposure.</p>
+</dd>
+<dt><code>Usage</code></dt><dd><p>The usage (unknown category).</p>
+</dd>
+<dt><code>VehType</code></dt><dd><p>The vehicle type (unknown category).</p>
+</dd>
+<dt><code>VehPower</code></dt><dd><p>The vehicle power (unknown category).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown private insurer
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(fremotor1prem0304a)
+data(fremotor1prem0304b)
+data(fremotor1prem0304c)
+
+data(fremotor1freq0304a)
+data(fremotor1freq0304b)
+data(fremotor1freq0304c)
+
+data(fremotor1sev0304a)
+data(fremotor1sev0304b)
+data(fremotor1sev0304c)
+
+#gross written premium
+tapply(fremotor1prem0304a$PremTot, fremotor1prem0304a$Year, sum)
+
+
+
+# (1) load of data
+#
+data(fremotor2sev9907)
+data(fremotor3sev9907)
+data(fremotor4sev9907)
+
+data(fremotor2freq9907u)
+data(fremotor3freq9907u)
+data(fremotor4freq9907u)
+data(fremotor2freq9907b)
+data(fremotor3freq9907b)
+data(fremotor4freq9907b)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

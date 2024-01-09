@@ -1,0 +1,264 @@
+<!DOCTYPE html><html><head><title>R: French Disability Tables and Probabilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>freDisTables {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='freDisTables'> French Disability Tables and Probabilities </h2>
+
+<h3>Description</h3>
+
+<p>Naming convention: <code>X2Y</code> stands for going 
+from state <code>X</code> to state <code>Y</code>,
+where possible states are <code>T</code> (temporary disability), 
+<code>P</code> (permanent disability), <code>D</code> (death).
+For instance, <code>T2T</code> stands for temporary to temporary disability.
+</p>
+<p>Tables <code>freP2Pdis10</code>, <code>freT2Tdis10</code> and <code>freT2Pdis10</code>
+have been established by the French mutual (BCAC) under a mission
+mandated by the French association of insurance companies (FFSA)
+and imposed by the new retirement reglementation after an
+agreement of professional federations.
+These tables have been build in 1993 and extended to the age 62 in 2010
+by the December 24 act in 2010, cf. JO (2010).
+</p>
+<p>These tables have been entirely rebuilt in 2013 by BCAC: the new
+imposed tables are Tables <code>freP2Pdis13</code>, <code>freT2Tdis13</code> 
+and <code>freT2Pdis13</code>, see Bagui (2013).
+</p>
+<p><code>freP2Pdis10/freP2Pdis13</code> contain the continuation table of permanent disability
+(so-called invalidity in France)
+based on a 10,000-person reference population for all age between 20 and 61
+(resp. between 20 and 64).
+<code>freT2Tdis10/freT2Tdis13</code> contain the continuation table of temporary disability
+(so-called incapacity in France)
+based on a 10,000-person reference population for all age between 20 and 66.
+(resp. between 21 and 65).
+<code>freT2Pdis10/freT2Pdis13</code> contain the transition table
+(from temporary to permanent disability)
+based on a 10,000-person reference population for all age between 20 and 61
+(resp. between 21 and 62).
+Note that in France temporary disability is limited to 36 months (irrespective
+of the entry age) and permanent disability age is capped at the age of
+retirement 62 for 2010 tables (resp. 65 for 2013 tables).
+</p>
+<p><code>freT2Pdisprob10/freT2Pdisprob13</code>, <code>freT2Tdisprob10/freT2Tdisprob13</code>, 
+<code>freP2Pdisprob10/freP2Pdisprob13</code> are
+the corresponding probabilities deduced from the tables, respectively
+to go from temporary to permanent disability, to stay temporarily disabled
+and to stay permanently disabled, given the entry age and the number of
+month or years already disabled.
+</p>
+<p>Tables <code>freT2Ddis10</code>, <code>freP2Ddis10</code>
+have been established by the French mutual (BCAC) under a mission
+mandated by the French association of insurance companies (FFSA)
+and imposed by the new retirement reglementation after an
+agreement of professional federations.
+</p>
+<p>The <code>freP2Ddis10</code> contains the mortality table of permanent disability
+(so-called invalidity in France)
+based on a 10,000-person reference population for all age between 25 and 64.
+The <code>freT2Ddis10</code> contains the mortality table of temporary disability
+(so-called incapacity in France)
+based on a 10,000-person reference population for all age between 25 and 65.
+</p>
+<p><code>freP2Ddisprob10</code>, <code>freT2Ddisprob10</code> are
+the corresponding probabilities deduced from the tables, respectively
+to die from temporary disability, to die from permanent disability,
+given the entry age and the number of month or years already disabled.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(freP2Pdis10)
+data(freT2Tdis10)
+data(freT2Pdis10)
+
+data(freP2Pdisprob10)
+data(freT2Tdisprob10)
+data(freT2Pdisprob10)
+
+data(freT2Ddis10)
+data(freP2Ddis10)
+
+data(freT2Ddisprob10)
+data(freP2Ddisprob10)
+
+data(freP2Pdis13)
+data(freT2Tdis13)
+data(freT2Pdis13)
+
+data(freP2Pdisprob13)
+data(freT2Tdisprob13)
+data(freT2Pdisprob13)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>freP2Pdis10/freP2Pdis13</code> contains 44 (resp. 47) columns:
+</p>
+
+<dl>
+<dt><code>EntryAge</code></dt><dd><p>The entry age in permanent disability.</p>
+</dd>
+<dt><code>NbYrSpent0</code>,...,<code>NbYrSpent42/NbYrSpent45</code></dt><dd>
+<p>The number of people (among 10,000) who spent a certain 
+number of years (0 to 42/45) in permanent disability.
+</p>
+</dd>
+</dl>
+
+<p><code>freP2Pdisprob10/freP2Pdisprob13</code> contains the probabilities to stay
+permanently disabled given the number of years spent in
+such a state.
+</p>
+<p><code>freT2Tdis10/freT2Tdis13</code> contains 38 columns:
+</p>
+
+<dl>
+<dt><code>EntryAge</code></dt><dd><p>The entry age in permanent disability.</p>
+</dd>
+<dt><code>NbMthSpent0</code>...<code>NbMthSpent36</code></dt><dd><p>The number of people
+(among 10,000) who spent a certain number of months (0 to 36) in
+temporary disability.</p>
+</dd>
+</dl>
+
+<p><code>freT2Tdisprob10/freT2Tdisprob13</code> contains in 36 columns 
+from <code>NbMthSpent0</code> to <code>NbMthSpent35</code> the probabilities 
+to stay temporarily disabled given the number of months spent in
+such a state.
+</p>
+<p><code>freT2Pdis10/freT2Pdis13</code> contains 37 columns:
+</p>
+
+<dl>
+<dt><code>EntryAge</code></dt><dd><p>The entry age in permanent disability.</p>
+</dd>
+<dt><code>NbMthSpent0</code>...<code>NbMthSpent35</code></dt><dd><p>Transition probably
+from temporary to permanent disability after a certain number 
+of months (0 to 35) spent in temporary disability.</p>
+</dd>
+</dl>
+
+<p><code>freT2Pdisprob10/freT2Pdisprob13</code> contains in 36 columns 
+from <code>NbMthSpent0</code> to <code>NbMthSpent35</code> the probabilities 
+to become permanently disabled given the number of months spent in
+temporary disability.
+</p>
+<p><code>freT2Ddis10</code> contains 37 columns:
+</p>
+
+<dl>
+<dt><code>EntryAge</code></dt><dd><p>The entry age in permanent disability.</p>
+</dd>
+<dt><code>NbMthSpent0</code>...<code>NbMthSpent35</code></dt><dd><p>The number of people
+(among 10,000) who spent a certain number of months (0 to 35) in
+temporary disability.</p>
+</dd>
+</dl>
+
+<p><code>freT2Ddisprob10</code> contains in 36 columns the probabilities
+to die given the number of months spent in temporary disability.
+</p>
+<p><code>freP2Ddis10</code> contains 37 columns:
+</p>
+
+<dl>
+<dt><code>EntryAge</code></dt><dd><p>The entry age in permanent disability.</p>
+</dd>
+<dt><code>NbYrSpent0</code>...<code>NbYrSpent35</code></dt><dd><p>The number of people
+(among 10,000) who spent a certain number of years (0 to 35) in
+permanent disability.</p>
+</dd>
+</dl>
+
+<p><code>freP2Ddisprob10</code> contains in 36 columns the probabilities
+to die given the number of years spent in permanent disability.
+</p>
+
+
+<h3>Source</h3>
+
+<p><a href="http://www.ressources-actuarielles.net/C1256F13006585B2/0/D62719E329025B94C12577C100545BB7">RessourcesActuarielles</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>(all ref. in French)
+</p>
+<p>Bagui (2013), <em>Refonte des loi de maintien en incapacite
+temporaire de travail</em>, ISFA actuary memoir.
+</p>
+<p>JO (2010), <em>Arrete du 24 decembre 2010 fixant les regles de provisionnement
+des garanties d'incapacite de travail, d'invalidite et de deces</em>,
+Journal Officiel, Texte 55 sur 138, 30 decembre 2010.
+</p>
+<p>FFSA (2005), <em>Demande de donnees relatives aux populations d'assures</em>, 
+Document de travail FFSA.
+</p>
+<p>Planchet (2005), <em>Tables de mortalite d'experience pour des 
+portefeuilles de rentiers</em>, Note methodologique de l'Institut des Actuaires.
+</p>
+<p>Planchet (2006), <em>Construction des tables de mortalite 
+d'experience pour les portefeuilles de rentiers - presentation de 
+la methode de construction</em>, Note methodologique de l'Institut des Actuaires.
+</p>
+<p>Serant (2005), <em>Construction de tables prospectives de mortalite</em>, 
+Document interne FFSA (confidential).
+</p>
+<p>Tassin (2006), <em>Note qualitative sur les tables prospectives IA 2006 
+masculines et feminines</em>, Document interne de l'Institut des Actuaires.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(freP2Pdis10)
+data(freT2Tdis10)
+data(freT2Pdis10)
+
+data(freP2Pdisprob10)
+data(freT2Tdisprob10)
+data(freT2Pdisprob10)
+
+data(freT2Ddis10)
+data(freP2Ddis10)
+
+data(freT2Ddisprob10)
+data(freP2Ddisprob10)
+
+
+data(freP2Pdis13)
+data(freT2Tdis13)
+data(freT2Pdis13)
+
+data(freP2Pdisprob13)
+data(freT2Tdisprob13)
+data(freT2Pdisprob13)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

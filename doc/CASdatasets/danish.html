@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Danish reinsurance claim dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>danish {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='danish'> Danish reinsurance claim dataset </h2>
+
+<h3>Description</h3>
+
+<p>The univariate dataset was collected at Copenhagen Reinsurance and 
+comprise 2167 fire losses over the period 1980 to 1990. 
+They have been adjusted for inflation to reflect 1985 
+values and are expressed in millions of Danish Krone.
+</p>
+<p>The multivariate dataset is the same data as above but the 
+total claim has been divided 
+into a building loss, a loss of contents 
+and a loss of profits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(danishuni)
+data(danishmulti)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>danishuni</code> contains two columns:
+</p>
+
+<dl>
+<dt><code>Date</code></dt><dd><p>The day of claim occurence.</p>
+</dd>
+<dt><code>Loss</code></dt><dd><p>The total loss amount in millions of Danish Krone (DKK).</p>
+</dd>
+</dl>
+
+<p><code>danishmulti</code> contains five columns:
+</p>
+
+<dl>
+<dt><code>Date</code></dt><dd><p>The day of claim occurence.</p>
+</dd>
+<dt><code>Building</code></dt><dd><p>The loss amount (mDKK) of the building coverage.</p>
+</dd>
+<dt><code>Contents</code></dt><dd><p>The loss amount (mDKK) of the contents coverage.</p>
+</dd>
+<dt><code>Profits</code></dt><dd><p>The loss amount (mDKK) of the profit coverage.</p>
+</dd>
+<dt><code>Total</code></dt><dd><p>The total loss amount (mDKK).</p>
+</dd>
+</dl>
+
+<p>All columns are numeric except Date columns of class Date. 
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Embrechts, P., Kluppelberg, C. and Mikosch, T. (1997) 
+<em>Modelling Extremal Events for Insurance and Finance</em>. Berlin: Springer.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>McNeil, A. (1996), <em>Estimating the Tails of Loss Severity
+Distributions using Extreme Value Theory</em>, ASTIN Bull,
+<a href="https://doi.org/10.2143/AST.27.1.563210">doi:10.2143/AST.27.1.563210</a>.
+</p>
+<p>Davison, A. C. (2003) 
+<em>Statistical Models</em>. Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511815850">doi:10.1017/CBO9780511815850</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(danishuni)
+
+# (2) plot and description of data
+#
+plot(danishuni$Loss)
+
+# (3) load of data
+#
+data(danishmulti)
+
+# (4) plot and description of data
+#
+idx &lt;- sample(1:NROW(danishmulti), 10)
+barplot(danishmulti$Building[idx], col="grey25", 
+    ylim=c(0, max(danishmulti$Total[idx])), main="Some claims of danish dataset")
+barplot(danishmulti$Content[idx], add=TRUE, col="grey50", axes=FALSE)
+barplot(danishmulti$Profits[idx], add=TRUE, col="grey75", axes=FALSE)
+legend("topleft", legend=c("Building", "Content", "Profits"), fill=c("grey25", 
+    "grey50", "grey75"))
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

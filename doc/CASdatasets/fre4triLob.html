@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: French private motor, third party liability or disability...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>fre4LoBtriangles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='fre4LoBtriangles'>French private motor, third party liability or disability triangles</h2>
+
+<h3>Description</h3>
+
+<p>Datasets <code>fretri1auto9605</code>, <code>fretri2auto9605</code> and 
+<code>fretri3auto9605</code> contain claim triangles of motor policies 
+from a French non-life insurer between 1996 and 2005.
+Dataset <code>fretri4auto9403</code> contains a claim triangle of motor 
+policies from a French non-life insurer between 1994 and 2003. 
+Note that the accident year 1994 corresponds to
+all of years before 1994 (included).
+</p>
+<p>For each dataset, the variable <code>fretri1auto---</code> is a list of 3 elements
+for the damage guarantee, the body guarantee and the total.
+Each element is also a list of two elements with paid claims
+and incurred claim amounts.
+Note that claim amounts are cumulated.
+</p>
+<p>Dataset <code>fretri1TPL9207</code> contains a claim triangle of third party
+liability policies from a French non-life insurer between 1992 and 2007.
+For <code>fretri1TPL9207</code>, only paid cumulative claim amounts are available.
+</p>
+
+
+
+
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+#1st Line of Business
+data(fretri1auto9605)
+
+#2nd Line of Business
+data(fretri2auto9605)
+
+#3rd Line of Business
+data(fretri3auto9605)
+
+#4th Line of Business
+data(fretri4auto9403)
+
+#5th Line of Business
+data(fretri1TPL9207)
+
+
+
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>fretriX---YYZZ</code> contains the insurance triangle for <code>X</code>th
+line of business from year <code>YY</code> to year <code>ZZ</code>.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Unknown private insurers
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+
+#1st Line of Business
+data(fretri1auto9605)
+
+#2nd Line of Business
+data(fretri2auto9605)
+
+#3rd Line of Business
+data(fretri3auto9605)
+
+#4th Line of Business
+data(fretri4auto9403)
+
+#5th Line of Business
+data(fretri1TPL9207)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

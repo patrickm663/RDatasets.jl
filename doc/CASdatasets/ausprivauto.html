@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>R: Automobile claim datasets in Australia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausprivauto {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausprivauto'>Automobile claim datasets in Australia</h2>
+
+<h3>Description</h3>
+
+<p>Third party insurance is a compulsory insurance for vehicle owners
+in Australia. It insures vehicle owners against injury  caused to
+other drivers, passengers or pedestrians, as a result of an
+accident.
+</p>
+<p>The <code>ausprivauto0405</code> dataset is based on  one-year vehicle insurance
+policies taken out in 2004 or 2005. There are 67856 policies, of
+which  4624 had at least one claim.
+</p>
+<p>The <code>ausMTPL8486</code>  dataset records the number of third party claims in a
+twelve-month period between 1984 and 1986 in each of 176 geographical
+areas (local government areas) in New South Wales, Australia.
+</p>
+<p>The <code>ausprivautolong</code> is a simulated dataset containing counts
+of claims for 40 000 policies, for three periods (years). The simulation is based
+on a true non-life portfolio.
+The risk factors are driver's age and vehicle value. Each policy is regarded
+as a cluster, and hence there are 3 x 40 000 = 120 000 records.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ausprivautolong)
+data(ausMTPL8486)
+data(ausprivauto0405)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ausprivauto0405</code> is a data frame of 9 columns and 67,856 rows:
+</p>
+
+<dl>
+<dt><code>Exposure</code></dt><dd><p>The number of policy years.</p>
+</dd>
+<dt><code>VehValue</code></dt><dd><p>The vehicle value in thousand of AUD.</p>
+</dd>
+<dt><code>VehAge</code></dt><dd><p>The vehicle age group.</p>
+</dd>
+<dt><code>VehBody</code></dt><dd><p>The vehicle body group.</p>
+</dd>
+<dt><code>Gender</code></dt><dd><p>The gender of the policyholder.</p>
+</dd>
+<dt><code>DrivAge</code></dt><dd><p>The age of the policyholder.</p>
+</dd>
+<dt><code>ClaimOcc</code></dt><dd><p>Indicates occurence of a claim.</p>
+</dd>
+<dt><code>ClaimNb</code></dt><dd><p>The number of claims.</p>
+</dd>
+<dt><code>ClaimAmount</code></dt><dd><p>The sum of claim payments.</p>
+</dd>
+</dl>
+
+<p><code>ausMTPL8486</code> is a data frame of 7 columns and 176 rows:
+</p>
+
+<dl>
+<dt><code>LocalGov</code></dt><dd><p>The local government area.</p>
+</dd>
+<dt><code>StatDiv</code></dt><dd><p>The vehicle value in thousand of AUD.</p>
+</dd>
+<dt><code>ClaimNb</code></dt><dd><p>The number of third-party claims.</p>
+</dd>
+<dt><code>AccNb</code></dt><dd><p>The number of accidents.</p>
+</dd>
+<dt><code>KillInjNb</code></dt><dd><p>The number of killed or injured.</p>
+</dd>
+<dt><code>Pop</code></dt><dd><p>The population size.</p>
+</dd>
+<dt><code>PopDens</code></dt><dd><p>The population density.</p>
+</dd>
+</dl>
+
+<p><code>ausprivauto0405</code> is a data frame of 6 columns and 120,000 rows:
+</p>
+
+<dl>
+<dt><code>IDpol</code></dt><dd><p>The policy identification number.</p>
+</dd>
+<dt><code>DrivAge</code></dt><dd><p>The age of the policyholder.</p>
+</dd>
+<dt><code>VehValue</code></dt><dd><p>The vehicle value in thousand of AUD.</p>
+</dd>
+<dt><code>Periode</code></dt><dd><p>The period number.</p>
+</dd>
+<dt><code>ClaimNb</code></dt><dd><p>The number of claims.</p>
+</dd>
+<dt><code>ClaimOcc</code></dt><dd><p>Indicates occurence of a claim.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Formerly on a website dedicated to P. De Jong and G.Z. Heller (2008).
+</p>
+
+
+
+<h3>References</h3>
+
+<p>P. De Jong and G.Z. Heller (2008),
+<em>Generalized linear models for insurance data</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511755408">doi:10.1017/CBO9780511755408</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(ausprivautolong)
+data(ausMTPL8486)
+data(ausprivauto0405)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Norberg's credibility dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>Norberg {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Norberg'> Norberg's credibility dataset </h2>
+
+<h3>Description</h3>
+
+<p>This univariate dataset was self-made by Norberg (1979)
+for pointing out the relevancy of credibility.
+It contains hypothetic records of binary claim of an
+insurance portfolio with 20 policies.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(Norberg)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>Norberg</code> contains 20 columns and 10 rows. Rows 
+are the 10 years of experience, while columns are the 20
+policies in the portfolio.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Public.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Dataset used in Ragnar Norberg (1979), 
+<em>The credibility approach to experience rating</em>, 
+Scandinavian Actuarial Journal, 181-221,
+<a href="https://doi.org/10.1080/03461238.1979.10413721">doi:10.1080/03461238.1979.10413721</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(Norberg)
+
+# (2) plot and description of data
+#
+matplot(0:9, apply(Norberg, 2, cumsum)/(1:10), type="l", 
+ylim=c(0, 1), main="Claim experience")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Large commercial risks in Asia-Pacific</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>asiacomrisk {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='asiacomrisk'> Large commercial risks in Asia-Pacific </h2>
+
+<h3>Description</h3>
+
+<p>A completed project by the Insurance Risk and Finance Research Centre (www.IRFRC.com)
+has assembled a unique dataset from Large Commercial Risk losses in
+Asia-Pacific (APAC) covering the period 2000-2013.
+The data was generously contributed by one global reinsurance company and two large Lloyd's
+syndicates in London. This dataset is the result of the project co-lead by Dr Milidonis
+(IRFRC and University of Cyprus) and Enrico Biffis (Imperial College Business School),
+which can be referred to as the IRFRC LCR Dataset.
+</p>
+<p>As expected, the dataset is fully anonymised, as the LCR losses are aggregated along a
+few dimensions. First, data is categorised based on the World Bank's economic development
+classification. This means that losses either come from developed or developing
+countries. The second dimension used to aggregate the data is the time period covered.
+Data is grouped into (at least) two time-periods: the period before and after the 2008 crisis.
+</p>
+<p>A large commercial risk (LCR) is defined as a loss caused by man-made risks (e.g. fire, explosion, etc.).
+We exclude natural catastrophe events, and started by focusing on claims that made the data provider
+incur a loss amount of at least EUR 1 million. We then extended our dataset to include claims leading
+to loss amounts smaller that EUR 1 million. Given time constraints, we only partially extended loss
+data by obtaining FGU losses larger than EUR 140k. One should note that any selection bias arising
+from the data collection exercise is driven by both data quality and reliability. Based on our
+experience, the latter two attributes are homogeneous across developed and developing countries APAC claims.
+</p>
+<p>For further details, see the technical report: Benedetti, Biffis and Milidonis (2015a).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(asiacomrisk)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>asiacomrisk</code> contains 7 columns:
+</p>
+
+<dl>
+<dt><code>Period</code></dt><dd><p>A character string for the period: <code>"2000-2003"</code>,
+<code>"2004-2008"</code>, <code>"2009-2010"</code>, <code>"2011-2013"</code>.</p>
+</dd>
+<dt><code>FGU</code></dt><dd><p>From the Ground Up Loss (USD).</p>
+</dd>
+<dt><code>TIV</code></dt><dd><p>Total Insurable Value (TIV) replaced with Total Sum Insured (TSI)
+when the TIV is not available (USD).</p>
+</dd>
+<dt><code>CountryStatus</code></dt><dd><p>A character string for the country status:
+<code>"Developped"</code>, <code>"Emerging"</code>.</p>
+</dd>
+<dt><code>Usage</code></dt><dd><p>A character string for the type of exposure hit by the loss:
+<code>"Commercial"</code>, <code>"Energy"</code>, <code>"Manufacturing"</code>,
+<code>"Misc."</code>, <code>"Residential"</code>.</p>
+</dd>
+<dt><code>SubUsage</code></dt><dd><p>A character string for a precised type of exposure hit by the loss:
+<code>"Commercial"</code>, <code>"Energy"</code>, <code>"General industry"</code>, <code>"Metals/Mines/Chemicals"</code>,
+<code>"Misc."</code>, <code>"Residential"</code>, <code>"Utility"</code>.</p>
+</dd>
+<dt><code>DR</code></dt><dd><p>A numeric for the destruction rate (FGU divided TIV capped to 1).</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+<p>Benedetti, D., Biffis, E., and Milidonis, A. (2015a).
+<em>Large Commercial Risks (LCR) in Insurance: Focus on Asia-Pacific</em>,
+Insurance Risk and Finance Research Centre Technical report.
+</p>
+<p>Benedetti, D., Biffis, E., and Milidonis, A. (2015b).
+<em>Large Commercial Exposures and Tail Risk: Evidence from the Asia-Pacific
+Property and Casualty Insurance Market</em>,
+Working paper.
+</p>
+<p>Chavez-Demoulin, V., Embrechts, P., and Hofert, M. (2015).
+<em>An extreme value approach for modeling operational risk losses depending on covariates.</em>
+The Journal of Risk and Insurance.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(asiacomrisk)
+dim(asiacomrisk)
+
+# (2) basic boxplots
+#
+
+asiacomrisk
+boxplot(DR ~ Usage, data=asiacomrisk)
+boxplot(DR ~ SubUsage, data=asiacomrisk)
+boxplot(DR ~ Period, data=asiacomrisk)
+boxplot(DR ~ CountryStatus, data=asiacomrisk)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

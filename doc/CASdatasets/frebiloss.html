@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: French business interruption losses</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>frebiloss {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='frebiloss'> French business interruption losses </h2>
+
+<h3>Description</h3>
+
+<p>The univariate dataset was collected at FFSA and 
+comprise 2387 business interruption losses 
+over the period 1985 to 2000 (for losses above 100,000 French 
+Francs). 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(frebiloss)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>danishuni</code> contains 8 columns:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>The year of claim occurence.</p>
+</dd>
+<dt><code>OccurDate</code></dt><dd><p>The day of claim occurence.</p>
+</dd>
+<dt><code>PolicyID</code></dt><dd><p>The policy identification number.</p>
+</dd>
+<dt><code>ClaimID</code></dt><dd><p>The claim identification number.</p>
+</dd>
+<dt><code>ClaimCost</code></dt><dd><p>Original claim cost in French Francs (FFR).</p>
+</dd>
+<dt><code>TotalCost</code></dt><dd><p>Original total cost (claim+expense) in French Francs.</p>
+</dd>
+<dt><code>ClaimCost2007</code></dt><dd><p>Normed claim cost in thousand of 2007 euros (EUR).</p>
+</dd>
+<dt><code>TotalCost2007</code></dt><dd><p>Normed total cost in thousand of 2007 euros (EUR).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>FFSA
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Dataset used in Zajdenweber (1996). 
+<em>Extreme values in business interruption insurance</em>,
+Journal of Risk and Insurance, 1, 95-110,
+<a href="https://doi.org/10.2307/253518">doi:10.2307/253518</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(frebiloss)
+dim(frebiloss)
+
+# (2) ecdf plot
+#
+plot(ecdf(frebiloss$ClaimCost2007), log="x", xlim=c(10^1, 10^5))
+
+boxplot(ClaimCost2007~Year, data=frebiloss, log="y")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Automobile bodily injury claim dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usautoBI {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usautoBI'>Automobile bodily injury claim dataset</h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains automobile injury claims collected in 2002
+by the Insurance Research Council (part of AICPCU and IIA).
+There are 1,340 records with demographic information, in
+addition to the claim amount.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(usautoBI)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usautoBI</code> is a data frame of 8 columns and 1,340 rows:
+</p>
+
+<dl>
+<dt><code>CASENUM</code></dt><dd><p>Case number to identify the claim.</p>
+</dd>
+<dt><code>ATTORNEY</code></dt><dd><p>Whether the claimant is represented by an attorney: 1 is yes.</p>
+</dd>
+<dt><code>CLMSEX</code></dt><dd><p>Claimant's gender: M for male and F for female.</p>
+</dd>
+<dt><code>MARITAL</code></dt><dd><p>claimant's marital status : 1 if married, 2 if single,
+3 if widowed, and 4 if divorced/separated.</p>
+</dd>
+<dt><code>CLMINSUR</code></dt><dd><p>Whether or not the driver of the claimant's vehicle
+was uninsured: 1 if yes, 2 if no, and 3 if not applicable.</p>
+</dd>
+<dt><code>SEATBELT</code></dt><dd><p>Whether or not the claimant was wearing a seatbelt/child
+restraint: 1 if yes, 2 if no, and 3 if not applicable.</p>
+</dd>
+<dt><code>CLMAGE</code></dt><dd><p>Claimant's age.</p>
+</dd>
+<dt><code>LOSS</code></dt><dd><p>The claimant's total economic loss (in thousands of USD).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees, E.W. (2010), 
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usautoBI)
+dim(usautoBI)
+head(usautoBI)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

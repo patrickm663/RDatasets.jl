@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: French claim settlements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>freclaimset {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='freclaimset'> French claim settlements </h2>
+
+<h3>Description</h3>
+
+<p>The dataset consists of 2306 claims settlements
+between 1996 and 2006.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(freclaimset)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>freclaimset</code> contains 6 columns:
+</p>
+
+<dl>
+<dt><code>PaymentDate</code></dt><dd><p>The payment date.</p>
+</dd>
+<dt><code>Payment</code></dt><dd><p>The amount of money paid.</p>
+</dd>
+<dt><code>FbFprov</code></dt><dd><p>The file-by-file provision.</p>
+</dd>
+<dt><code>Risk</code></dt><dd><p>The risk category.</p>
+</dd>
+<dt><code>Subrisk</code></dt><dd><p>The sub-category.</p>
+</dd>
+<dt><code>Type</code></dt><dd><p>The risk type.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown private insurer
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(freclaimset)
+dim(freclaimset)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

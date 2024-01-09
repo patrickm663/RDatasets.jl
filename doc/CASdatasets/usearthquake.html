@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>R: California earthquake loss ratios</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usquakeLR {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usquakeLR'>California earthquake loss ratios</h2>
+
+<h3>Description</h3>
+
+<p>Loss ratios for earthquake insurance in California
+between 1971 and 1994.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+data(usquakeLR)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usquakeLR</code> is a data frame of 2 columns and 24 rows:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>Year of the earthquake.</p>
+</dd>
+<dt><code>LossRatio</code></dt><dd><p>Loss ratio.</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+ 
+<p>Jaffee, D.M. and Russell, T. (1996),
+<em>Catastrophe Insurance, Capital Markets and Uninsurable Risks</em>,
+Philadelphia: Financial Institutions Center, The Wharton School, p. 96-112,
+<a href="https://doi.org/10.2307/253729">doi:10.2307/253729</a>.
+</p>
+<p>Embrechts, Resnick and Samorodnitsky (1999).
+<em>Extreme Value Theory as a Risk Management Tool</em>,
+North American Actuarial Journal, Volume 3, Number 2,
+<a href="https://doi.org/10.1080/10920277.1999.10595797">doi:10.1080/10920277.1999.10595797</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usquakeLR)
+
+# (2) plot log scale
+#
+plot(usquakeLR$Year, usquakeLR$LossRatio+1e-3, 
+ylim=c(1e-3, 1e4), log="y", ylab="Loss Ratio", xlab="Year")
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

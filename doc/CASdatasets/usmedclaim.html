@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>R: US Medical claim incremental triangles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>usmedclaim {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='usmedclaim'>US Medical claim incremental triangles</h2>
+
+<h3>Description</h3>
+
+<p>This dataset comes from Gamage et al. (2007) and contains
+medical-care payements by month between January 2001 and December 2003.
+Payments for medical-care coverage come from policies with no deductible
+or coinsurance.
+For a given month and a development year, payments are aggregated among members
+but are cumulated over development year.
+The payments exclude prescription drugs that typically have a shorter 
+payment pattern than other medical claims.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(usmedclaim)
+
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>usmedclaim</code> is a matrix containing two columns (with members count
+and month) and the insurance triangle.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees (2010), 
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Gamage, J., Linfield, J., Ostaszewski, K. and S. Siegel (2007).
+<em>Statistical methods for health actuaries - IBNR estimates: An introduction</em>,
+Society of Actuaries Working Paper, Schaumburg, Illinois.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(usmedclaim)
+head(usmedclaim, 10)
+
+
+# (2) graph of data
+#
+matplot(t(as.matrix(usmedclaim[,-(1:2)])), type="b", main="Payment by accident month", 
+    xlab="Month", ylab="Amount (USD)")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html><html><head><title>R: Portfolio Mortality and Disability Tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>freportfolio {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='freportfolio'> Portfolio Mortality and Disability Tables </h2>
+
+<h3>Description</h3>
+
+<p>The <code>freprojqxINSEE</code> table has been established on
+INSEE projection for the period 2007-2060 based a median
+scenario, cf. Blanpain and Chardon (2010), adjusted and selected for the purpose of the book.
+</p>
+<p>The <code>frefictivetable</code> represents a fictive portfolio of
+87,090 individuals that enter in a healthy condition and have been observed
+between 1996-01-01 and 2007-12-31.
+The exit (that may occur before December 2007) is either <code>"deceased"</code> or <code>"other"</code>.
+</p>
+<p>The <code>frefictivetable2,frefictivetable3</code> represents a fictive portfolio of
+100,000 individuals that enter in a healthy condition and have been observed
+between December 1988 and December 1998.
+The exit is either <code>"deceased"</code> or <code>"other"</code> for censored observation.
+</p>
+<p>The <code>freptfpermdis</code> and <code>freptftempdis</code> datasets comes from two portfolio
+of two French private companies (insurer or institute), respectively for permanent
+disability insurance and temporary disability insurance.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(freprojqxINSEE)
+data(frefictivetable)
+data(frefictivetable2)
+data(frefictivetable3)
+data(freptfpermdis)
+data(freptftempdis)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>freprojqxINSEE</code> is a data frame of 109 columns and 66 rows:
+</p>
+
+<dl>
+<dt><code>Age</code></dt><dd><p>The age.</p>
+</dd>
+<dt><code>F2007</code>,..., <code>F2060</code></dt><dd><p>The 1-year female death probabilities</p>
+</dd>
+<dt><code>M2007</code>,..., <code>M2060</code></dt><dd><p>The 1-year male death probabilities</p>
+</dd>
+</dl>
+
+<p><code>frefictivetable</code> is a data frame of 6 columns and 87,090 rows:
+</p>
+
+<dl>
+<dt><code>Id</code></dt><dd><p>the identification number.</p>
+</dd>
+<dt><code>Gender</code></dt><dd><p>the gender as <code>"factor"</code>.</p>
+</dd>
+<dt><code>DateOfBirth</code></dt><dd><p>the date of birth as <code>"Date"</code>.</p>
+</dd>
+<dt><code>DateIn</code></dt><dd><p>the entry date as <code>"Date"</code>.</p>
+</dd>
+<dt><code>DateOut</code></dt><dd><p>the exit date as <code>"Date"</code>.</p>
+</dd>
+<dt><code>Status</code></dt><dd><p>the status at exit : <code>"deceased"</code> (i.e. non-censored observation) 
+or <code>"other"</code> (i.e. censored observation) as <code>"factor"</code>.</p>
+</dd>
+</dl>
+
+<p><code>frefictivetable2,frefictivetable3</code> are data frames of 5 columns and 100,000 rows:
+</p>
+
+<dl>
+<dt><code>DateIn</code></dt><dd><p>the entry date as <code>"Date"</code>.</p>
+</dd>
+<dt><code>DateOut</code></dt><dd><p>the exit date as <code>"Date"</code>.</p>
+</dd>
+<dt><code>Status</code></dt><dd><p>the status at exit : <code>"deceased"</code> (i.e. non-censored observation)         or <code>"other"</code> (i.e. censored observation) as <code>"factor"</code>.</p>
+</dd>
+<dt><code>DateOfBirth</code></dt><dd><p>the date of birth as <code>"Date"</code>.</p>
+</dd>
+<dt><code>Gender</code></dt><dd><p>the gender as <code>"factor"</code>.</p>
+</dd>
+</dl>
+
+<p><code>freptfpermdis</code> is a data frame of 6 columns and 1,048,575 rows:
+</p>
+
+<dl>
+<dt><code>PolicyID</code></dt><dd><p>the policy identification number.</p>
+</dd>
+<dt><code>BirthDate</code></dt><dd><p>the date of birth.</p>
+</dd>
+<dt><code>Gender</code></dt><dd><p>the sex: <code>M</code> for male and <code>F</code> for female.</p>
+</dd>
+<dt><code>EntryDate</code></dt><dd><p>the entry date.</p>
+</dd>
+<dt><code>ExitDate</code></dt><dd><p>the exit date.</p>
+</dd>
+<dt><code>ExitStatus</code></dt><dd><p>the status at exit: <code>"deceased"</code> (i.e. non-censored observation) 
+or <code>"other"</code> (i.e. censored observation).</p>
+</dd>
+</dl>
+
+<p><code>freptftempdis</code> is a data frame of 9 columns and 560,725 rows:
+</p>
+
+<dl>
+<dt><code>Gender</code></dt><dd><p>the sex: <code>M</code> for male and <code>F</code> for female.</p>
+</dd>
+<dt><code>JobType</code></dt><dd><p>the job category:
+<code>"employee"</code>, <code>"managers, engineers, sales responsibles"</code>, <code>"non-manager employee"</code>
+<code>"other 1"</code>, <code>"other 2"</code>, <code>"other 3"</code>, <code>"other 4"</code>, <code>"other 5"</code>,
+<code>"technician"</code>, <code>"unemployed workers"</code>.</p>
+</dd>
+<dt><code>UWType</code></dt><dd><p>the underwriting type: either <code>"specific policy in a collective agreement"</code>,
+<code>"specific policy not linked to a collective agreement"</code>,
+<code>"standard policy in a collective agreement"</code> or
+<code>"standard policy not linked to a collective agreement"</code>.</p>
+</dd>
+<dt><code>JobStopType</code></dt><dd><p>the reason for disability:
+<code>"illness"</code>, <code>"work accident"</code>, <code>"pregnancy"</code> (for women only).</p>
+</dd>
+<dt><code>Birthdate</code></dt><dd><p>the date of birth.</p>
+</dd>
+<dt><code>OccurDate</code></dt><dd><p>the date of occurence.</p>
+</dd>
+<dt><code>EntryDate</code></dt><dd><p>the entry date.</p>
+</dd>
+<dt><code>ExitDate</code></dt><dd><p>the exit date.</p>
+</dd>
+<dt><code>JobComebackType</code></dt><dd><p>the status at exit:
+<code>"recovered"</code> (i.e. non-censored observation: the person goes back to work),
+<code>"disabled"</code> (i.e. non-censored observation: the person is permanently disabled)
+or <code>"on-going"</code> (i.e. censored observation).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>For <code>freprojqxINSEE</code>, Blanpain and Chardon (2010).
+</p>
+<p>For <code>frefictivetable</code>, Chapter 9 of <em>Computational Actuarial Science with R</em>, Ed. Arthur Charpentier,
+Chapman and Hall/CRC The R Series, 2014.
+</p>
+<p>For <code>freptfpermdis</code>, <code>freptftempdis</code>,
+<a href="http://www.ressources-actuarielles.net/C1256F13006585B2/0/EFBBA5745173676FC125751D003DA6DB">RessourcesActuarielles</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Blanpain, N. and Chardon, O. (2010). 
+<em>Projections de populations 2007-2060 pour la France 
+metropolitaine: methode et principaux resultats</em>. 
+Serie des Documents de Travail de la direction 
+des statistiques Demographiques et Sociales F1008, 
+INSEE.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(freprojqxINSEE)
+data(frefictivetable)
+
+head(freprojqxINSEE)
+head(frefictivetable)
+
+# (2) load of data
+#
+
+data(frefictivetable2)
+range(frefictivetable2$DateIn)
+range(frefictivetable2$DateOut)
+
+
+# (3) other
+#
+
+## Not run: 
+data(freptfpermdis)
+data(freptftempdis)
+
+
+head(freptfpermdis)
+head(freptftempdis)
+
+## End(Not run)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

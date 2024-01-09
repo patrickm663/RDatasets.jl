@@ -1,0 +1,369 @@
+<!DOCTYPE html><html><head><title>R: Australian Market - non-life insurance (company, state,...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausNLHYby {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausNLHYby'>Australian Market - non-life insurance (company, state, public level)</h2>
+
+<h3>Description</h3>
+
+<p>Financial performance and financial position of insurers operating 
+in Australia between 2005 and 2010 (company, state, public level).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ausNLHYClaimByState)
+data(ausNLHYPremByState)
+
+data(ausNLHYCapAdeqByComp)
+data(ausNLHYFinPerfByComp)
+data(ausNLHYFinPosByComp)
+data(ausNLHYPrivInsur)
+
+data(ausNLHYFinPerfPublic)
+data(ausNLHYFinPosPublic)
+data(ausNLHYOpIncExpPublic)
+data(ausNLHYPremClaimPublic)
+data(ausNLHYPubInsur)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>ausNLHYPremByState</code> (Table 10) and <code>ausNLHYClaimByState</code> (Table 11) 
+are data frames of 6 columns (values are in million of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Class</code>: Class of business.
+</p>
+</li>
+<li><p><code>NSWACTYYYYMM</code>: New South Wales / Australian Capital Territory for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>VICYYYYMM</code>: Victoria in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>QLDYYYMM</code>: Queensland in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>SAYYYYMM</code>: South Australia in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>WAYYYYMM</code>: Western Australia in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>TAYYYYMM</code>: Tasmania in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>NTYYYYMM</code>: Northern Territory in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>TotalYYYYMM</code>: Total in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYPrivInsur</code> (Classficiation private) is a data frame of 6 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Company</code>: Company short name.
+</p>
+</li>
+<li><p><code>FullNameYYYYMM</code>: FUll name of the company for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>DateYYYYMM</code>: Date in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>ClassficiationYYYMM</code>: Classficiation in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code> either <code>Direct</code> or <code>Reinsurer</code>.      
+</p>
+</li>
+<li><p><code>BranchYYYYMM</code>: non empty when branch insurer in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>RestrictionYYYYMM</code>: Restriction on underwriting in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYCapAdeqByComp</code> (Table 14) is a data frame of 6 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Company</code>: Company short name.
+</p>
+</li>
+<li><p><code>DateYYYYMM</code>: Balance Date for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>MCRYYYYMM</code>: Minimum capital requirement in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>CapitalYYYMM</code>: Capital base in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>SurplusYYYYMM</code>: Capital surplus in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>SolRatioYYYYMM</code>: Solvency coverage ratio in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYFinPerfByComp</code> (Table 12) is a data frame of 9 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Company</code>: Company short name.
+</p>
+</li>
+<li><p><code>DateYYYYMM</code>: Balance Date for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>GWPYYYYMM</code>: Gross written premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>REYYYYMM</code>: Outwards reinsurance expense in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>NWPYYYYMM</code>: Net written premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>GICYYYYMM</code>: Gross incurred claims in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>NRRYYYYMM</code>: Non-reinsurance recoveries revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.
+</p>
+</li>
+<li><p><code>RRYYYYMM</code>: Reinsurance recoveries revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.    
+</p>
+</li>
+<li><p><code>NICYYYYMM</code>: Net incurred claims in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>UWEYYYYMM</code>: Underwriting expenses in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.          
+</p>
+</li>
+<li><p><code>UWRYYYYMM</code>: Underwriting result in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>IIYYYYMM</code>: Investment income in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.                 
+</p>
+</li>
+<li><p><code>OIYYYYMM</code>: Other items in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.                       
+</p>
+</li>
+<li><p><code>NPATYYYYMM</code>: Net profit-loss after tax in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYFinPosByComp</code> (Table 13) is a data frame of 7 columns
+(values are in thousand of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Company</code>: Company short name.
+</p>
+</li>
+<li><p><code>InvestYYYYMM</code>: Investments for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>TotalAssetYYYYMM</code>: Total assets in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>ClaimReservYYYMM</code>: Outstanding claims provision in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>PremLiabYYYYMM</code>: Premium liabilities in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>ClaimReservYYYYMM</code>: Total liabilities in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>TotalLiabYYYYMM</code>: Shareholders equity in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>EquityYYYYMM</code>: Shareholders equity in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYPubInsur</code> (Classification public) is a data frame of 1 column:
+</p>
+
+<ul>
+<li><p><code>CompanyYYYYMM</code>: Company name for year <code>YYYY</code>.             
+</p>
+</li></ul>
+
+<p><code>ausNLHYFinPerfPublic</code> (Table 15), <code>ausNLHYOpIncExpPublic</code> (Table 16), 
+are data frames of 2 columns (values are in million of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>TotalYYYYMM</code>: Total for year <code>YYYY</code>.             
+</p>
+</li></ul>
+
+<p><code>ausNLHYFinPosPublic</code> (Table 17) is a data frame of 3 columns
+(values are in million of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>TotalYYYYMM</code>: Total for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>InsideAustraliaOnlyYYYYMM</code>: Inside Australia Only for year <code>YYYY</code>.             
+</p>
+</li></ul>
+
+<p><code>ausNLHYPremClaimPublic</code> (Table 18) is a data frame of 6 columns
+(values are in million of Australian dollars (AUD)):
+</p>
+
+<ul>
+<li><p><code>Class</code>: Class of business.
+</p>
+</li>
+<li><p><code>GWPYYYYMM</code>: Gross written premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>PEYYYYMM</code>: Premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>REYYYYMM</code>: Reinsurance expense in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>GICYYYYMM</code>: Gross incurred claims in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>RORYYYYMM</code>: Reinsurance recoveries revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.    
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Data is copyrighted by Australian Prudential Regulation Authority (APRA)
+and is under the Creative Commons - By licence. Please refer to
+<a href="https://www.apra.gov.au/">https://www.apra.gov.au/</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ausNLHYtotal</code> for aggregate level,
+<code>ausNLHYlloyd</code> for LLoyds and
+<code>ausNLHYglossary</code> for glossary notes.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) by company data
+#
+data(ausNLHYCapAdeqByComp)
+data(ausNLHYFinPerfByComp)
+data(ausNLHYFinPosByComp)
+
+# (2) by state data
+#
+data(ausNLHYClaimByState)
+data(ausNLHYPremByState)
+
+# (3) public sector data
+#
+data(ausNLHYFinPerfPublic)
+data(ausNLHYFinPosPublic)
+data(ausNLHYOpIncExpPublic)
+data(ausNLHYPremClaimPublic)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

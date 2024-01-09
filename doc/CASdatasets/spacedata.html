@@ -1,0 +1,235 @@
+<!DOCTYPE html><html><head><title>R: Space dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>spacedata {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='spacedata'>Space dataset</h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains 1,698 observations of satelites
+between 1956 and 2013 where the study focuses failure
+and success once the satelite has reached its targeted
+orbit. Failures during the launching step or the 
+testing step are not considered. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(spacedata)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>spacedata</code> is a data frame of 16 columns and 1,698 rows:
+</p>
+
+<dl>
+<dt><code>Event</code></dt><dd><p>A character string describing the launch: 
+always &quot;LAUNCH: Satellite launched successfully&quot;.</p>
+</dd>
+<dt><code>EventDate</code></dt><dd><p>The date of the launch.</p>
+</dd>
+<dt><code>MissionType</code></dt><dd><p>A character string describing 
+the mission goals.</p>
+</dd>
+<dt><code>InitOrbit</code></dt><dd><p>A character string for the satelite 
+orbit, see details.</p>
+</dd>
+<dt><code>OrbitRange</code></dt><dd><p>A character string summarizing 
+the satelite orbit.</p>
+</dd>
+<dt><code>Position</code></dt><dd><p>A character for the position.</p>
+</dd>
+<dt><code>ContractLife</code></dt><dd><p>The contractual life (in years).</p>
+</dd>
+<dt><code>Sector</code></dt><dd><p>A character string: either &quot;CIVIL&quot; or &quot;MILITARY&quot;.</p>
+</dd>
+<dt><code>IsCommercial</code></dt><dd><p>When civil usage, 1 indicates 
+private (commercial), 0 public (institution).</p>
+</dd>
+<dt><code>Mass</code></dt><dd><p>Mass of satellite (Kg).</p>
+</dd>
+<dt><code>RetireDate</code></dt><dd><p>Date of retirement, if any.</p>
+</dd>
+<dt><code>TotalFailDate</code></dt><dd><p>Date of total failure, if any, see details.</p>
+</dd>
+<dt><code>PartialFailDate</code></dt><dd><p>Date of partial failure, 
+if any, see details.</p>
+</dd>
+<dt><code>AnyFailDate</code></dt><dd><p>Date of first failure, in any.</p>
+</dd>
+<dt><code>OperLifeTime</code></dt><dd><p>Life Length of the satelite (in years)
+when operating successfully.</p>
+</dd>
+<dt><code>Censored</code></dt><dd><p>Indicator for censoring.</p>
+</dd>
+</dl>
+
+
+
+<h3>Details</h3>
+
+<p>The satelite orbit is an acronym given by
+</p>
+
+<dl>
+<dt><code>EO</code></dt><dd><p>Elliptical Orbit.</p>
+</dd>
+<dt><code>G</code></dt><dd><p>Geostationary.</p>
+</dd>
+<dt><code>GTO</code></dt><dd><p>Geostationary Transfert Orbit.</p>
+</dd>
+<dt><code>HEL</code></dt><dd><p>Heliocentric Orbit.</p>
+</dd>
+<dt><code>HEO</code></dt><dd><p>Highly Elliptical Orbit.</p>
+</dd>
+<dt><code>LEO</code></dt><dd><p>Low Earth Orbit.</p>
+</dd>
+<dt><code>MEO</code></dt><dd><p>Medium Earth Orbit.</p>
+</dd>
+<dt><code>PEO</code></dt><dd><p>Polar Elliptical Orbit.</p>
+</dd>
+<dt><code>PO</code></dt><dd><p>Polar Orbit.</p>
+</dd>
+<dt><code>SSO</code></dt><dd><p>Sun-Synchronous Orbit</p>
+</dd>
+</dl>
+
+<p>Some details on earth orbit are given below:
+</p>
+
+<dl>
+<dt>LEO</dt><dd>
+<p>Low Earth orbits (LEO) are defined to be orbits with 
+an average altitude that is less than 2,000 km. An 
+important subset of LEO is the sun-synchronous orbit (SSO). 
+These are circular orbits with an altitude between 500 km and 
+1200 km that provide an orbital period that result in passes 
+over a point on the Earth's surface at the same time of day, 
+a fixed number of days apart. This is ideal for Earth 
+observation missions. LEO has predominantly been used by 
+civil and military agencies for Earth observation, 
+scientific missions, manned missions and intelligence or spy satellites.
+</p>
+</dd>
+<dt>MEO</dt><dd>
+<p>Medium Earth orbits (MEO) are defined to be orbits 
+with an average altitude in the range of 5,000 to 
+20,000 km. The U.S. military were the first to exploit 
+this orbit with the Global Positioning Satellites (GPS). 
+The numerous satellites in the constellation appear to move 
+slowly across the sky of an observer and several satellites 
+are always visible at any point on the Earth's surface. A similar 
+orbit is used by the Russia's equivalent Glonass system and the 
+European Galileo.
+</p>
+</dd>
+<dt>GEO</dt><dd>
+<p>The Geostationary Earth Orbit GEO type orbit features an altitude 
+of approximately 36,000 km. The matched orbital period means 
+that the satellite will appear to be nearly stationary in the 
+sky of an observer, allowing for simplified earth communications 
+and a global coverage. The main use of this type of orbit has 
+been for the telecommunications industry, point-to-point, 
+mobile and direct broadcast. A significant secondary user has 
+been for Earth observation, especially meteorological but also 
+military missile launch and nuclear explosion detection satellites. 
+Commercial use of space satellites has tended to concentrate on 
+the GEO orbit with the market predominantly developing in the 
+late 1970s and throughout the 1980s and 1990s. Total demand 
+for launches to GEO again increased to 1997, mainly due to 
+commercial interests, before a sharp decline in demand into 
+the early 2000s.
+</p>
+</dd>
+</dl>
+
+<p>Generally, a difference is made between partial losses and 
+total losses with the following definitions:
+</p>
+
+<dl>
+<dt>Total Loss - Constructive Total Loss:</dt><dd>
+<p>(1) Total Loss means physical destruction of the spacecraft, 
+no separation from the launch vehicle or injection in a useless 
+orbit, loss of control of the spacecraft.
+(2) Constructive Total Loss means a partial loss where the loss 
+ratio is equal or above 75 percent, assimilated to a Total Loss.</p>
+</dd>
+<dt>Partial Loss:</dt><dd><p> loss of performance impacting the spacecraft 
+intended mission, reduction of useful lifetime, permanently 
+intermittent mission based on a predetermined loss formula.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>Data based on two actuarial memoirs and partially modified
+to fit package standards.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Guelou, S. (2013).
+<em>Risques spatiaux: modelisation de la fiabilite
+des satellites en orbite.</em>, EURo Institut d'Actuariat master thesis,
+University of Brest, France.
+</p>
+<p>Gauche, J.F. (2012).
+<em>Space risks.</em>, Centre d'Etudes Actuarielles master thesis,
+Paris, France.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Castet, J.F. and Saleh, J.H. (2011). 
+<em>Spacecraft reliability and multi-state failures
+: a statistical approach</em>, Wiley.
+</p>
+<p>Castet, J.F., Dubos,  G.F and Saleh, J.H. (2011). 
+<em>Statistical reliability analysis of
+satellites by mass category : 
+Does spacecraft size matter?</em>, Acta Astronautica,
+pages 584-595. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(spacedata)
+dim(spacedata)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

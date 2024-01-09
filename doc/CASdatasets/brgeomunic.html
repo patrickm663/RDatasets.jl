@@ -1,0 +1,182 @@
+<!DOCTYPE html><html><head><title>R: Brazilian geospatial dataset for municipalities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>brgeomunic {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='brgeomunic'> Brazilian geospatial dataset for municipalities </h2>
+
+<h3>Description</h3>
+
+<p><code>brgeomunic</code> is a spatial database containing geospatial information of Brazilian municipalities
+provided by IBGE, the Brazilian governmental agency
+in charge of geographical issues and official statistics (ibge.gov.br, accessed in
+February, 2013). <code>brgeomunic</code> is a geospatial dataframe of class sp based on three files:
+one containing the geographical coordinates of the polygons, lines or dots (55mu2500gsd.shp);
+another with attribute data (55mu2500gsd.dbf); a third file with the index that
+allows the connection between  the .shp and .dbf files(55mu2500gsd.shx).
+As it is of class sp, <code>brgeomunic</code> can be easily plotted or summarized.
+</p>
+<p>The final database is restricted to the municipalities from only four Brazilian states
+(Sao Paulo (SP), Santa Catarina (SC), Parana (PR), and Rio Grande do Sul (RS)).
+These states are located in the southern region of Brazil and contain almost 70 million
+inhabitants (around 36 percent of the Brazilian population) and constitute one of the
+richest regions of the country (approximately 60 percent of the Brazilian gross product).
+</p>
+<p><code>brgeomunicins</code> is also a geospatial dataframe of class <code>sp</code> combining a subset of <code>brgeomunic</code>
+(1833 cities out of 5566) and
+insurance statistic information. 
+The insurance information comes from  one large actuarial
+database provided by SUSEP, the agency responsible for the regulation and supervision
+of the Brazilian insurance, private pension, annuity, and reinsurance markets.
+SUSEP releases biannually a car insurance database composed of the aggregation
+of all insurance companies' information. Due to confidentiality concerns,
+there is no individual-level information, the data being aggregated into zip code areas.
+Originally, both SUSEP and IBGE databases did not present a unique identification column that provides
+a forward merge of the two databases. The joint information is the name and the state of each municipality.
+</p>
+<p>Insurance information have been selected to compare premiums, claims, and reported
+damages for two specific groups: popular vehicles and luxury vehicles.
+The basic difference between the groups is the power of the engine and the
+materials and finishing quality.
+Popular cars have a power of 1,000 cc (cylinders), whereas luxury cars usually
+have a power of 2,000 cc or greater.
+Popular cars are thus affordable to most customers.
+</p>
+<p>The <code>Pop</code> group contains the following selected popular
+vehicles: Celta 1.0 (Chevrolet), Corsa 1.0 (Chevrolet), Prisma 1.0
+(Chevrolet), Uno 1.0 (Fiat), Palio 1.0 (Fiat), Gol 1. (Volkswagen), Fox 1.0
+(Volkswagen), Fiesta 1.0 (Ford), and Ka 1.0 (Ford).
+</p>
+<p>The <code>Lux</code> group contains the following selected luxury vehicles:
+Vectra (Chevrolet), Omega (Chevrolet),
+Linea (Fiat), Bravo (Fiat), Passat (Volkswagen), Polo (Volkswagen), Fusion (Ford),
+Focus (Ford), Corolla (Toyota), Civic (Honda), and Audi.
+</p>
+<p>In summary, <code>brgeomunicins@data</code> is a dataframe with detailed information
+of region, city code, yearly exposure, premium, and frequency of claims
+for the following categories: robbery or theft (<code>Rob</code>), partial collision
+and total loss (<code>Coll</code>), fire (<code>Fire</code>), or others (<code>Other</code>).
+</p>
+<p>In addition to insurance statistics, the final dataframe <code>brgeomunicins@data</code>
+also includes the municipality population (<code>CityDens10</code>) based on the 2010 Census,
+and the 2000 municipality Human Development Index (<code>HDIcity00</code>).
+The Human Development Index (HDI) is a summary measure of long-term progress in three basic dimensions
+of human development: income, education, and health. The HDI provides a counterpoint to another widely
+used indicator, the Gross Domestic Product (GDP) per capita, which only considers economic dimensions.
+Both <code>CityDens10</code> and <code>HDIcity00</code> columns were generated
+from the IBGE site (ibge.gov.br, accessed February 2013).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(brgeomunic)
+data(brgeomunicins)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>brgeomunic@data</code> contains 1 column:
+</p>
+
+<dl>
+<dt>CityCode</dt><dd><p>A character string for the severity.</p>
+</dd>
+</dl>
+
+<p><code>brgeomunicins@data</code> contains 18 columns:
+</p>
+
+<dl>
+<dt>CityCode</dt><dd><p>A character string for the severity.</p>
+</dd>
+<dt>State, StateAb</dt><dd><p>Character string (<code>"factor"</code>) for the full state name
+and the two-letter abbreviated state name.</p>
+</dd>
+<dt>City</dt><dd><p>A character string (<code>"factor"</code>) for the cityname.</p>
+</dd>
+<dt>PopExpo, LuxExpo</dt><dd><p>The sum of exposure periods for policies in the <code>Pop</code> and the <code>Lux</code> groups, in years.</p>
+</dd>
+<dt>PopPrem, LuxPrem</dt><dd><p>Gross written premium for the <code>Pop</code> and the <code>Lux</code> groups, respectively.</p>
+</dd>
+<dt>PopClaimRob, LuxClaimRob</dt><dd><p>Aggregate robbery claim number for the
+<code>Pop</code> and the <code>Lux</code> groups, respectively.</p>
+</dd>
+<dt>PopClaimColl, LuxClaimColl</dt><dd><p>Aggregate collision claim number for the
+<code>Pop</code> and the <code>Lux</code> groups, respectively.</p>
+</dd>
+<dt>PopClaimFire, LuxClaimFire</dt><dd><p>Aggregate fire claim number for the
+<code>Pop</code> and the <code>Lux</code> groups, respectively.</p>
+</dd>
+<dt>PopClaimOther, LuxClaimOther</dt><dd><p>Aggregate other claim number for the
+<code>Pop</code> and the <code>Lux</code> groups, respectively.</p>
+</dd>
+<dt>HDIcity00</dt><dd><p>A numeric for the HDI index of the city.</p>
+</dd>
+<dt>CityDens10</dt><dd><p>A numeric for the population density.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>The original dataset was provided in Chapter 5 of Charpentier (2014).
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Charpentier, A. (2014).
+<em>Computational Actuarial Science with R</em>. CRC Press.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>See the <code>sp</code> class.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(brgeomunicins)
+str(brgeomunicins@data)
+
+## Not run: 
+# (2) plot of data
+#
+ cols &lt;- rev(gray(seq(0.1, 0.9, length = 5)))
+
+ spplot(brgeomunicins, "HDIcity00", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimFire", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimColl", col.regions = cols, cuts = length(cols) - 1)
+ spplot(brgeomunicins, "PopClaimRob", col.regions = cols, cuts = length(cols) - 1)
+
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

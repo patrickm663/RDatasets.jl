@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: United States lapse dataset from tied-agent channel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>uslapseagent {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='uslapseagent'>United States lapse dataset from tied-agent channel</h2>
+
+<h3>Description</h3>
+
+<p>The <code>uslapseagent</code> portfolio contains 
+detailed information on the 29,317 Whole Life policies, all sold from the tied-agent channel between January 
+1995 and December 2008.
+</p>
+<p>For each policy, we know the issuance date, the gender of the policyholder, the age category, 
+etc...~Unfortunately, some variables are rather uninformative.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(uslapseagent)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>uslapseagent</code> is a data frame of 14 columns and 29,317 rows:
+</p>
+
+<dl>
+<dt><code>issue.date</code></dt><dd><p>Issue date. For policies not terminated
+in December 2008, we have non information: fixed right censored.</p>
+</dd>
+<dt><code>duration</code></dt><dd><p>Time duration in quarters, unknown if censored.</p>
+</dd>
+<dt><code>acc.death.rider</code></dt><dd><p>Indicates if the policy has an accidental death rider
+(i.e. an option covering accidental death).</p>
+</dd>
+<dt><code>gender</code></dt><dd><p>The gender of the policyholder.</p>
+</dd>
+<dt><code>premium.frequency</code></dt><dd><p>The premium frequency: 
+either infra-annual (monthly, quarterly, semi-annual);
+annual or supra-annual.</p>
+</dd>
+<dt><code>risk.state</code></dt><dd><p>The risk state:
+either <code>"Smoker"</code> or <code>"NonSmoker"</code>.</p>
+</dd>
+<dt><code>underwriting.age</code></dt><dd><p>The underwriting age:
+either <code>"Young"</code> (between 0 and 34 years old),
+<code>"Middle"</code> (between 35 and 54 years old)
+or <code>"Old"</code> (between 55 and 84 years old).</p>
+</dd>
+<dt><code>living.place</code></dt><dd><p>The living place (categorical value).</p>
+</dd>
+<dt><code>annual.premium</code></dt><dd><p>The annual premium (standardized scale):
+mean 560.88 and standard deviation 526.58 in original USD scale.</p>
+</dd>
+<dt><code>DJIA</code></dt><dd><p>the last observed quarterly variation of the DowJones Index (in standardized scale):
+mean 0.00178 and standard deviation 0.0494 in original scale.</p>
+</dd>      
+<dt><code>termination.cause</code></dt><dd><p>The type of termination.</p>
+</dd>
+<dt><code>surrender</code></dt><dd><p>A binary variable indicating the surrender by policyholder.</p>
+</dd>
+<dt><code>death</code></dt><dd><p>A binary variable indicating the death of policyholder.</p>
+</dd>
+<dt><code>other</code></dt><dd><p>A binary variable indicating other termination such as term.</p>
+</dd>
+<dt><code>allcause</code></dt><dd><p>A binary variable indicating all termination.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown non-life insurers from United States, used in Milhaud and Dutang (2018), 
+preprint at <a href="https://hal.archives-ouvertes.fr/hal-01985256">https://hal.archives-ouvertes.fr/hal-01985256</a>.
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Milhaud, X., Dutang, C. (2018), 
+<em>Lapse tables for lapse risk management in insurance: 
+a competing risk approach</em>. European Actuarial Journal, 8 (1), 97-126,
+<a href="https://doi.org/10.1007/s13385-018-0165-7">doi:10.1007/s13385-018-0165-7</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(uslapseagent)
+head(uslapseagent)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><title>R: European lapse dataset from the direct channel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>eudirectlapse {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='eudirectlapse'>European lapse dataset from the direct channel</h2>
+
+<h3>Description</h3>
+
+<p>The <code>eudirectlapse</code> dataset is based on  one-year vehicle insurance
+renewal quotes for an unknown year and an unknown insurer. There are 23,060 policies.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(eudirectlapse)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>eudirectlapse</code> is a data frame of 19 columns and 23,060 rows:
+</p>
+
+<dl>
+<dt><code>lapse</code></dt><dd><p>A binary variable indicating the lapse of the customer.</p>
+</dd>
+<dt><code>polholder_age</code></dt><dd><p>The age of the policyholder.</p>
+</dd>
+<dt><code>polholder_BMCevol</code></dt><dd><p>The evolution of bonus/malus coefficient (BMC) of 
+the policyholder: 3 categorical values (<code>"down"</code> when bonus increases,
+<code>"stable"</code> when coefficient does not change,
+<code>"up"</code> when malus increases.</p>
+</dd>
+<dt><code>polholder_diffdriver</code></dt><dd><p>The difference status between the
+policyholder and the driver.</p>
+</dd>
+<dt><code>polholder_gender</code></dt><dd><p>The gender of the policyholder.</p>
+</dd>
+<dt><code>polholder_job</code></dt><dd><p>The job of the policyholder:
+either <code>"medical"</code> or <code>"normal"</code>.</p>
+</dd>
+<dt><code>policy_age</code></dt><dd><p>The age of the policy.</p>
+</dd>
+<dt><code>policy_caruse</code></dt><dd><p>The car usage.</p>
+</dd>
+<dt><code>policy_nbcontract</code></dt><dd><p>The number of policies given policyholder for
+this insurer.</p>
+</dd>
+<dt><code>prem_final</code></dt><dd><p>The final renewal premium value proposed to policyholder.</p>
+</dd>
+<dt><code>prem_freqperyear</code></dt><dd><p>The premium frequency per year.</p>
+</dd>
+<dt><code>prem_last</code></dt><dd><p>The premium paid by the policyholder for the last insurance coverage.</p>
+</dd>
+<dt><code>prem_market</code></dt><dd><p>A proxy of the market premium.</p>
+</dd>
+<dt><code>prem_pure</code></dt><dd><p>The technical premium value.</p>
+</dd>
+<dt><code>vehicl_age</code></dt><dd><p>The vehicle age.</p>
+</dd>
+<dt><code>vehicl_agepurchase</code></dt><dd><p>The vehicle age at purchase.</p>
+</dd>
+<dt><code>vehicl_garage</code></dt><dd><p>The garage type (categorical values).</p>
+</dd>
+<dt><code>vehicl_powerkw</code></dt><dd><p>The horsepower of the car (categorical values).</p>
+</dd>
+<dt><code>vehicl_region</code></dt><dd><p>The living region of policyholder (unknown category).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown non-life insurers from European Union.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(eudirectlapse)
+head(eudirectlapse)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

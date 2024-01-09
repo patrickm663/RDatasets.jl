@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Secura Re Belgian dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>besecura {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='besecura'> Secura Re Belgian dataset </h2>
+
+<h3>Description</h3>
+
+<p>The dataset was collected by the reinsurer 
+Secura Re Belgium and comprises of 371 automobile claims
+from 1988 until 2001.
+The original claim numbers were corrected, among others, 
+for inflation to reflect 2002 euros.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(besecura)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>besecura</code> contains two columns and 371 rows:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>The year of claim occurence. </p>
+</dd>    
+<dt><code>Loss</code></dt><dd><p>The loss amount in euros (EUR).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://lstat.kuleuven.be/Wiley/">https://lstat.kuleuven.be/Wiley/</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Beirlant, J., Goegebeur, Y., Segers, J. and Teugels, J. L. (2004)
+<em>Statistics of Extremes: Theory and Applications.</em>,
+Chichester, England: John Wiley and Sons,
+<a href="https://doi.org/10.1002/0470012382">doi:10.1002/0470012382</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(besecura)
+
+# (2) plot and description of data
+#
+
+plot(Loss ~ Year, data= besecura, log="y", xlab="Year", 
+ylab="Claim size", main="Secura Re Belgian dataset")
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

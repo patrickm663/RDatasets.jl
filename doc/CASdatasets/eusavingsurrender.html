@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: European surrender dataset from the direct channel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>eusavingsurrender {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='eusavingsurrender'>European surrender dataset from the direct channel</h2>
+
+<h3>Description</h3>
+
+<p>The <code>eusavingULnoPS</code> dataset is based on 
+unit-linked saving products with no profit sharing sold in an unknown European 
+country. Those insurance policies are observed between 1999 and 2008:
+entries and exits are possible.
+<code>eusavingULnoPSperYr/perQtr/perMth</code> are repeated version 
+per year, per quarter or per month of <code>eusavingULnoPS</code>
+such that a policy is repeated per time interval as long as
+it stays in-force.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(eusavingULnoPSperYr)
+data(eusavingULnoPSperQtr)
+data(eusavingULnoPSperMth)
+data(eusavingULnoPS)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>eusavingULnoPS/perYr/perQtr/perMth</code> are data frames of 30 columns:
+</p>
+
+<dl>
+<dt><code>policy.ID</code></dt><dd><p>A character for the policy identification number.</p>
+</dd>
+<dt><code>issue.date</code>, <code>termination.date</code></dt><dd><p>Issue and termination dates.</p>
+</dd> 
+<dt><code>lapse.reason</code></dt><dd><p>A character for the lapse reason.</p>
+</dd> 
+<dt><code>premium.frequency</code></dt><dd><p>A character for the premium frequency.</p>
+</dd> 
+<dt><code>gender</code></dt><dd><p>A character for the gender.</p>
+</dd> 
+<dt><code>underwriting.age</code></dt><dd><p>A character for the underwriting age.</p>
+</dd> 
+<dt><code>face.amount</code></dt><dd><p>A numeric for the underwriting face amount.</p>
+</dd> 
+<dt><code>risk.premium</code></dt><dd><p>A numeric for the underwriting risk premium.</p>
+</dd> 
+<dt><code>saving.premium</code></dt><dd><p>A numeric for the underwriting saving premium.</p>
+</dd> 
+<dt><code>CPI.relvar1mth</code>,<code>CPI.relvar1qtr</code>,<code>CPI.relvar1yr</code>,<code>CPI.relvar2yr</code></dt><dd><p>The relative variation of Consumer Price Index over a month, a quarter,
+a year or two years.</p>
+</dd>
+<dt><code>EUidx.relvar1mth</code>, <code>EUidx.relvar1qtr</code>, <code>EUidx.relvar1yr</code>, <code>EUidx.relvar2yr</code></dt><dd><p>The relative variation of an European stock index over a month, a quarter,
+a year or two years.</p>
+</dd> 
+<dt><code>rate1Y.relvar1mth</code>,<code>rate1Y.relvar1qtr</code></dt><dd><p>The relative variation of one-year interest rate over a month, a quarter.</p>
+</dd> 
+<dt><code>rate2Y.relvar1mth</code>,<code>rate2Y.relvar1qtr</code></dt><dd><p>The relative variation of two-year interest rate over a month, a quarter.</p>
+</dd> 
+<dt><code>rate10Y.relvar1mth</code>,<code>rate10Y.relvar1qtr</code></dt><dd><p>The relative variation of ten-year interest rate over a month, a quarter.</p>
+</dd> 
+<dt><code>unemploy.relvar1mth</code>,<code>unemploy.relvar1qtr</code></dt><dd><p>The relative variation of an European unemployment rate over a month, a quarter.</p>
+</dd> 
+<dt><code>industry.relvar1mth</code>,<code>industry.relvar1qtr</code></dt><dd><p>The relative variation of an European industry index over a month, a quarter.</p>
+</dd> 
+<dt><code>RTV.relvar1mth</code>,<code>RTV.relvar1qtr</code></dt><dd><p>The relative variation of an European retail trade volume index over a month, a quarter.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown life insurers from European Union.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(eusavingULnoPS)
+head(eusavingULnoPS)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html><html><head><title>R: French Mortality Tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>freMortTables {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='freMortTables'> French Mortality Tables </h2>
+
+<h3>Description</h3>
+
+<p>The <code>frePM6064</code> (resp. <code>frePF6064</code>) table has been established on 
+INSEE observations collected between 1960 and 1964 in the French 
+male population (resp. the French female population).
+</p>
+<p>The <code>freTD7377</code> (resp. <code>freTV7377</code>) table has been established on 
+INSEE observations collected between 1973 and 1977 in the French 
+male population (resp. the French female population).
+The table was officially approved by the August 22 act in 1986 and
+applies to life insurance.
+</p>
+<p>The <code>freTD8890</code> (resp. <code>freTV8890</code>) table has been established on 
+INSEE observations collected between 1988 and 1990 in the French 
+male population (resp. the French female population).
+The table was officially approved by the April 27 act in 1993 and
+applies to life insurance.
+</p>
+<p>The <code>freTPRV93</code> table is exctracted from the floor table for pricing
+life annuities. The table was officially approved by the July 28 act in 1993
+and is based on the prospective table tracking mortalities for 
+generations between 1887 and 1993 (full table for generation 1950), JO (1993).
+</p>
+<p>The <code>freTH0002</code> (resp. <code>freTF0002</code>) table has been established 
+on INSEE observations collected in the French male population (resp. the 
+French female population). The table was officially approved by the 
+December 20 act in 2005 and applies to life insurance other than life 
+annuities in conjuction with the table of age shifts <code>freAS0002</code>,
+JO (2005, 2006a, 2006b, 2006c).
+</p>
+<p>The <code>freTGH05</code> (resp. <code>freTGF05</code>) table has been established 
+based on 19 portfolios (16 from FFSA and 3 from CTIP) in the French male population 
+(resp. the French female population) between 1993 and 2005.
+The underlying prospective INSEE table has been built on the basis
+of mortality tables between 1962 and 2000. 
+The table was officially approved by the August 1 act in 2006.
+The <code>freTPG93full</code> table has been built for comparison with TGH05 and TGF05.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(frePM6064)
+data(frePF6064)
+
+data(freTD7377)
+data(freTV7377)
+
+data(freTD8890)
+data(freTV8890)
+
+data(freTPRV93)
+data(freTPG93full)
+
+data(freTF0002)
+data(freTH0002)
+data(freAS0002)
+
+data(freTGH05)
+data(freTGF05)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>frePM6064</code>, <code>frePF6064</code>, <code>freTD7377</code>, <code>freTV7377</code>,
+<code>freTD8890</code>, <code>freTV8890</code>, <code>freTPRV93</code>, <code>freTF0002</code> and
+<code>freTH0002</code>  contain 2 columns:
+</p>
+
+<dl>
+<dt><code>x</code></dt><dd><p>The age <code>x</code>.</p>
+</dd>
+<dt><code>lx</code></dt><dd><p>The number of people still alive at <code>x</code>
+among the initial 100,000 referenced people.</p>
+</dd>
+</dl>
+
+<p><code>freAS0002</code> contains 6 columns:
+</p>
+
+<dl>
+<dt><code>LowerAgeF</code>, <code>LowerAgeH</code></dt><dd><p>The lower bound of the age class.</p>
+</dd>
+<dt><code>UpperAgeF</code>, <code>UpperAgeH</code></dt><dd><p>The upper bound of the age class.</p>
+</dd>
+<dt><code>ShiftF</code>, <code>ShiftH</code></dt><dd><p>The value to shift.</p>
+</dd>
+</dl>
+
+<p><code>freTGH05</code> and <code>freTGF05</code> contain 107 columns:
+</p>
+
+<dl>
+<dt><code>x</code></dt><dd><p>The age <code>x</code>.</p>
+</dd>
+<dt><code>lx1900</code>, ..., <code>lx2005</code></dt><dd><p>The number of people still alive at <code>x</code>
+among the referenced people in year 1900 (etc.. 2005).</p>
+</dd>
+</dl>
+	
+<p><code>freTPG93full</code>	contains 95 columns:
+</p>
+
+<dl>
+<dt><code>x</code></dt><dd><p>The age.</p>
+</dd>
+<dt><code>lx1900</code>, ..., <code>lx1993</code></dt><dd><p>The number of people still alive at <code>x</code>
+among the referenced people in year 1900 (etc.. 1993).</p>
+</dd>
+</dl>
+	
+
+
+<h3>Source</h3>
+
+ 
+<p>INSEE, 
+JO, 
+<a href="http://www.ressources-actuarielles.net/C1256F13006585B2/0/D62719E329025B94C12577C100545BB7">RessourcesActuarielles</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>FFSA (2005), <em>Demande de donnees relatives aux populations d'assures</em>, 
+Document de travail FFSA.
+</p>
+<p>IA (2006), <em>Notice d'utilisation des tables de mortalite
+TH0002 and TF0002</em>, Note methodologique de l'Institut des Actuaires.
+</p>
+<p>JO (1986), <em>Arrete du 8 aout 1986</em>,
+Journal Officiel num 174, Texte 30, 22 aout 1986.
+</p>
+<p>JO (1993), <em>Arrete du 28 juillet 1993</em>,
+Journal Officiel num 174, Texte 30, 30 juillet 1993.
+</p>
+<p>JO (2005), <em>Arrete du 20 decembre 2005</em>,
+Journal Officiel num 302, Texte 40, 29 decembre 2005.
+</p>
+<p>JO (2006a), <em>Arrete du 1 aout 2006</em>,
+Journal Officiel num 197, Texte 11, 26 aout 2006.
+</p>
+<p>JO (2006b), <em>Arrete du 8 decembre 2006</em>,
+Journal Officiel num 302, Texte 93, 30 decembre 2006.
+</p>
+<p>JO (2006c), <em>Arrete du 21 decembre 2006</em>,
+Journal Officiel num 9, Texte 31, 11 janvier 2007.
+</p>
+<p>Planchet (2005), <em>Tables de mortalite d'experience pour des 
+portefeuilles de rentiers</em>, Note methodologique de l'Institut des Actuaires.
+</p>
+<p>Planchet (2006), <em>Construction des tables de mortalite 
+d'experience pour les portefeuilles de rentiers - presentation de 
+la methode de construction</em>, Note methodologique de l'Institut des Actuaires.
+</p>
+<p>Serant (2005), <em>Construction de tables prospectives de mortalite</em>, 
+Document interne FFSA (confidentiel).
+</p>
+<p>Tassin (2006), <em>Note qualitative sur les tables prospectives IA 2006 
+masculines et feminines</em>, Document interne de l'Institut des Actuaires.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(frePM6064)
+data(frePF6064)
+
+data(freTD7377)
+data(freTV7377)
+
+data(freTD8890)
+head(freTD8890)
+
+data(freTV8890)
+head(freTV8890)
+
+data(freTPRV93)
+head(freTPRV93)
+
+data(freTF0002)
+head(freTF0002)
+
+data(freTH0002)
+head(freTH0002)
+
+data(freAS0002)
+head(freAS0002)
+
+data(freTGH05)
+head(freTGH05)
+
+data(freTGF05)
+head(freTGF05)
+
+data(freTPG93full)
+head(freTPG93full)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

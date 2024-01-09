@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Norwegian fire insurance dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>norauto {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='norauto'> Norwegian fire insurance dataset </h2>
+
+<h3>Description</h3>
+
+<p>This dataset comprises 183,999 observations of automobile insurance
+policies losses over a one-year period.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(norauto)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>norauto</code> contains 7 columns (each row is a policy):
+</p>
+
+<dl>
+<dt><code>Male</code></dt><dd><p>1 if the policyholder is a male, 0 otherwise.</p>
+</dd>
+<dt><code>Young</code></dt><dd><p>1 if the policyholder age is below 26 years, 0 otherwise.</p>
+</dd>
+<dt><code>DistLimit</code></dt><dd><p>The distance limit as stated in the insurance contract: 
+<code>"8000 km"</code>, <code>"12000 km"</code>, <code>"16000 km"</code>, <code>"20000 km"</code>, <code>"25000-30000 km"</code>,
+<code>"no limit"</code>.</p>
+</dd> 
+<dt><code>GeoRegion</code></dt><dd><p>Density of the geographical region (from heaviest to lightest): 
+<code>"High+"</code>, <code>"High-"</code>, <code>"Medium+"</code>, <code>"Medium-"</code>, <code>"Low+"</code>, <code>"Low-"</code>.</p>
+</dd>
+<dt><code>Expo</code></dt><dd><p>Exposure as a fraction of year.</p>
+</dd>
+<dt><code>ClaimAmount</code></dt><dd><p>0 or the average claim amount if <code>NbClaim &gt; 0</code>.</p>
+</dd>
+<dt><code>NbClaim</code></dt><dd><p>The claim number.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p>Unknown Norwegian insurer.
+</p>
+<p>Downloaded from University of Oslo: <a href="https://www.uio.no/studier/emner/matnat/math/STK4520/h05/undervisningsmateriale/">https://www.uio.no/studier/emner/matnat/math/STK4520/h05/undervisningsmateriale/</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(norauto)
+summary(norauto)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Singapore general liability triangles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>sgtriangles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sgtriangles'>Singapore general liability triangles</h2>
+
+<h3>Description</h3>
+
+<p><code>sgautoprop9701</code> is a data report incremental payments 
+from a portfolio of automobile policies for a Singapore 
+property and casualty (general) insurer for years 1997-2001.
+Payments are for third party property damage from comprehensive 
+insurance policies. All payments have been deflated using a 
+Singaporean consumer price index, so they are in constant dollars. 
+</p>
+<p><code>sgautoBI9301</code> contains incremental payments from a portfolio of automobile 
+policies for a Singapore property and casualty (general) insurer
+for years 1993-2001.
+Payments, deflated for inflation, are for third party injury from 
+comprehensive insurance policies. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(sgautoprop9701)
+data(sgautoBI9301)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>sgautoprop9701</code> and <code>sgautoBI9301</code> are two matrices
+containing insurance triangles.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">Freesbook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>Frees, E.W. (2010),
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Frees, E.W., and E. Valdez (2008).
+<em>Hierarchical insurance claims modeling</em>,
+Journal of the American Statistical Association 103, 1457-1469,
+<a href="https://doi.org/10.1198/016214508000000823">doi:10.1198/016214508000000823</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(sgautoprop9701)
+data(sgautoBI9301)
+
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><title>R: Property and casualty insurance demand</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>PnCdemand {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='PnCdemand'>Property and casualty insurance demand</h2>
+
+<h3>Description</h3>
+
+<p>The <code>PnCdemand</code> contains indicators of the demand for 
+property and liability insurance in terms of national 
+economic and risk aversion characteristics.
+There are 22 countries over 7 years between 1987-1993.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(PnCdemand)
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+<p><code>PnCdemand</code> contains 22 columns:
+</p>
+
+<dl>
+<dt><code>"Name"</code></dt><dd><p>A character for the country name.</p>
+</dd>
+<dt><code>"Country"</code></dt><dd><p>A numeric for the country identifier.</p>
+</dd>
+<dt><code>"Time"</code></dt><dd><p>A numeric for the time identifier.</p>
+</dd>
+<dt><code>"GNPCAP"</code></dt><dd><p>A numeric for the Gross national product,
+in US dollars per capita..</p>
+</dd>
+<dt><code>"NewMEAS"</code></dt><dd><p>A numeric for the new measure of wealth produced by the World Bank. It is a
+composite measure that includes human resources, produced or manufactured assets and natural resources.
+This variable is time-invariant. It is wealth per capita, in thousands of US dollars.</p>
+</dd>
+<dt><code>"RiskAversion"</code></dt><dd><p>A numeric for the risk aversion, which is proxied by level of education.
+This is measured by the enrollment ratio of third-level education, that is, the ratio of total enrollment
+in third-level education institutions to the total population age 20 to 24. Education at the third level
+is provided by different types of institutions, including universities, teacher-training institutions and technical institutes.</p>
+</dd>
+<dt><code>"Protect"</code></dt><dd><p>A numeric for the protective measures may reduce competition and thus raise prices.
+Trade barriers are proxied by the insurance market share of foreign firms. Specifically, this is the market
+share of branches or agencies of foreign undertakings in total domestic non-life insurance.</p>
+</dd>
+<dt><code>"PopDens"</code></dt><dd><p>A numeric for the population density, the average number of people living within a square kilometer.</p>
+</dd>
+<dt><code>"Urban"</code></dt><dd><p>A numeric for the urbanization. The percentage of people living in urban areas.</p>
+</dd>
+<dt><code>"LegalSyst"</code></dt><dd><p>A numeric for the legal system. This is an indicator variable that is equal to
+one if the country has a common law system and is zero otherwise (statutory law system). This variable is time-invariant.</p>
+</dd>
+<dt><code>"CPI"</code></dt><dd><p>A numeric for the Consumer Price Index, as a percentage.</p>
+</dd>
+<dt><code>"Auto"</code></dt><dd><p>Automobile premium density, computed as total direct gross automobile insurance premiums
+divided by the country's population. It includes damage or loss to land vehicles as well as liability arising
+out of the use of motor vehicles. The measure is in US dollars per capita.</p>
+</dd>
+<dt><code>"Transport"</code></dt><dd><p>Transport premium density. Transport insurance includes railway loss, aircraft
+loss and liability and ship loss and liability.</p>
+</dd>
+<dt><code>"Freight"</code></dt><dd><p>Freight premium density. It includes all damage to or loss of goods in transit or baggage.</p>
+</dd>
+<dt><code>"FireProp"</code></dt><dd><p>Fire and other property damage premium density. It includes damage or loss of
+property due to fire, explosion, storm, other natural forces, nuclear energy and land subsidence as well as other damage to property.</p>
+</dd>
+<dt><code>"PecLoss"</code></dt><dd><p>Pecuniary loss premium density. It includes credit loss, surety loss and other miscellaneous financial losses.</p>
+</dd>
+<dt><code>"GenLiab"</code></dt><dd><p>General liability premium density. It includes all liability other than motor vehicle, aircraft and ship liability.</p>
+</dd>
+<dt><code>"AccSick"</code></dt><dd><p>Accident and sickness premium density.</p>
+</dd>
+<dt><code>"OtherNL"</code></dt><dd><p>Other non-life premium density. It includes legal expenses, assistance and other miscellaneous insurance.</p>
+</dd>
+<dt><code>"MRATE"</code></dt><dd><p>Motor vehicle ownership per capita.</p>
+</dd>
+<dt><code>"NumAcc"</code></dt><dd><p>?</p>
+</dd>
+<dt><code>"Population"</code></dt><dd><p>Total population number.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-LPD</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>Browne, M. J., Chung, J. and Frees, E. W. (2000). 
+<em>International property-liability insurance consumption</em>. 
+Journal of Risk and Insurance, 73-90,
+<a href="https://doi.org/10.2307/253677">doi:10.2307/253677</a>.
+</p>
+<p>Frees, E. W. (2004). 
+<em>Longitudinal and panel data: analysis and applications in the social sciences</em>. 
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511790928">doi:10.1017/CBO9780511790928</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(PnCdemand)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html><html><head><title>R: Australian Market - non-life insurance (aggregate level)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>ausNLHYtotal {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ausNLHYtotal'>Australian Market - non-life insurance (aggregate level)</h2>
+
+<h3>Description</h3>
+
+<p>Financial performance and financial position of insurers operating 
+in Australia between 2005 and 2010 (aggregate level).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(ausNLHYCapAdeq)
+data(ausNLHYFinPerf)
+data(ausNLHYFinPos)
+data(ausNLHYLiability)
+data(ausNLHYOffProf)
+data(ausNLHYOpIncExp)
+data(ausNLHYPremClaim)
+data(ausNLHYPrivInsur)
+data(ausNLHYPubInsur)
+data(ausNLHYRecAASB)
+data(ausNLHYReserve)
+
+
+
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p>All values are in million of Australian dollars (AUD).
+</p>
+<p><code>ausNLHYFinPerf</code> (Table 1), 
+<code>ausNLHYCapAdeq</code> (Table 5), <code>ausNLHYOpIncExp</code> (Table 2)
+are data frames of 4 columns:
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.             
+</p>
+</li>
+<li><p><code>InsurersYYYYMM</code>: Insurers for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>ReinsurersYYYYMM</code>: Reinsurers in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>TotalYYYMM</code>: Total in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.  
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYRecAASB</code> (Table 6) is data frames of 4 columns:
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.             
+</p>
+</li>
+<li><p><code>NBInsurersYYYYMM</code>: Non-branch Insurers for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>NBReinsurersYYYYMM</code>: Non-branch Reinsurers in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>NBTotalYYYMM</code>: Non-branch Total in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.  
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYFinPos</code> (Table 3) is a data frame of 5 columns:
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.             
+</p>
+</li>
+<li><p><code>InsurersYYYYMM</code>: Insurers for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>ReinsurersYYYYMM</code>: Reinsurers in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>TotalYYYMM</code>: Total in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.  
+</p>
+</li>
+<li><p><code>InsideAustraliaOnlyYYYMM</code>: InsideAustraliaOnly in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.  
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYPremClaim</code> (Table 7) is a data frame of 6 columns:
+</p>
+
+<ul>
+<li><p><code>Class</code>: Class of business.
+</p>
+</li>
+<li><p><code>GWPYYYYMM</code>: Gross written premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>REYYYYMM</code>: Outwards reinsurance expense in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>NWPYYYYMM</code>: Net written premium revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>GICYYYYMM</code>: Gross incurred claims in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li>
+<li><p><code>RRYYYYMM</code>: Reinsurance recoveries revenue in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.    
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYReserve</code> (Table 8) is a data frame of 5 columns:
+</p>
+
+<ul>
+<li><p><code>Class</code>: Class of business.
+</p>
+</li>
+<li><p><code>GORYYYYMM</code>: Gross Outstanding Reserve in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>RRYYYYMM</code>: Reinsurance Recoverables in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>NRRYYYYMM</code>: Non Reinsurance Recoverables in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>NORYYYYMM</code>: Net Outstanding Reserve in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYLiability</code> (Table 9) is a data frame of 5 columns:
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.
+</p>
+</li>
+<li><p><code>GPLYYYYMM</code>: Gross Premium Liability in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>RRYYYYMM</code>: Reinsurance Recoverables in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>NRRYYYYMM</code>: Non Reinsurance Recoverables in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.               
+</p>
+</li>
+<li><p><code>NPLYYYYMM</code>: Net Premium Liability in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.             
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+<p><code>ausNLHYOffProf</code> (Table 4) is a data frame of 7 columns:
+</p>
+
+<ul>
+<li><p><code>Content</code>: Content.             
+</p>
+</li>
+<li><p><code>AusInsurersYYYYMM</code>: Australian Insurers for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>AusReinsurersYYYYMM</code>: Australian Reinsurers in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>AusTotalYYYMM</code>: Australian Total level in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li>
+<li><p><code>OffInsurersYYYYMM</code>: Offshore Insurers for year <code>YYYY</code>.             
+</p>
+</li>
+<li><p><code>OffReinsurersYYYYMM</code>: Offshore Reinsurers in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.            
+</p>
+</li>
+<li><p><code>OffTotalYYYMM</code>: Offshore Total level in year <code>YYYY</code> 
+reported on <code>DateYYYYMM</code>.      
+</p>
+</li></ul>
+
+<p>where <code>YYYYMM</code> is the concatenation of the year <code>YYYY</code> and month <code>MM</code>, 
+e.g. <code>200506</code>.
+</p>
+
+
+<h3>Source</h3>
+
+ 
+<p>Data is copyrighted by Australian Prudential Regulation Authority (APRA)
+and is under the Creative Commons - By licence. Please refer to
+<a href="https://www.apra.gov.au/">https://www.apra.gov.au/</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ausNLHYby</code> for company, state, public level,
+<code>ausNLHYlloyd</code> for LLoyds and
+<code>ausNLHYglossary</code> for glossary notes.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) private sector data
+#
+data(ausNLHYCapAdeq)
+data(ausNLHYFinPerf)
+data(ausNLHYFinPos)
+data(ausNLHYLiability)
+data(ausNLHYOffProf)
+data(ausNLHYOpIncExp)
+data(ausNLHYPremClaim)
+data(ausNLHYPrivInsur)
+data(ausNLHYPubInsur)
+data(ausNLHYRecAASB)
+data(ausNLHYReserve)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

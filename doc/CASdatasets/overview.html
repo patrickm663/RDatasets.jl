@@ -1,0 +1,391 @@
+<!DOCTYPE html><html><head><title>R: CASdatasets package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>CASdatasets {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='CASdatasets'>CASdatasets package</h2>
+
+<h3>Description</h3>
+
+<p>Actuarial Datasets (originally for the 'Computational Actuarial Science with R' book)
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package contains the following datasets
+</p>
+
+<ul>
+<li><p> Australia:
+</p>
+
+<ul>
+<li> <p><code>auscathist</code>: Historical disaster statistics in Australia.
+</p>
+</li>
+<li> <p><code>ausNLHYtotal</code>, <code>ausNLHYCapAdeq</code>,
+<code>ausNLHYFinPerf</code>, <code>ausNLHYFinPos</code>,
+<code>ausNLHYLiability</code>,	<code>ausNLHYOffProf</code>,
+<code>ausNLHYOpIncExp</code>, <code>ausNLHYPremClaim</code>,
+<code>ausNLHYPrivInsur</code>, <code>ausNLHYPubInsur</code>,
+<code>ausNLHYRecAASB</code>, <code>ausNLHYReserve</code>: Australian Market - non-life insurance (aggregate level).
+</p>
+</li>
+<li> <p><code>ausNLHYCapAdeqByComp</code>, <code>ausNLHYClaimByState</code>,
+<code>ausNLHYFinPerfByComp</code>, <code>ausNLHYFinPerfPublic</code>,
+<code>ausNLHYFinPosByComp</code>, <code>ausNLHYFinPosPublic</code>,
+<code>ausNLHYOpIncExpPublic</code>, <code>ausNLHYPremByState</code>,
+<code>ausNLHYPremClaimPublic</code>, <code>ausNLHYPrivInsur</code>,
+<code>ausNLHYPubInsur</code>: Australian Market - non-life insurance (company, state, public level).
+</p>
+</li>
+<li> <p><code>ausNLHYLloydAsset</code>, <code>ausNLHYLloydGPI</code>
+<code>ausNLHYLloydUWAcc</code>, <code>ausNLHYLloydUWRes</code>: Lloyds Market in Australia.
+</p>
+</li>
+<li><p><code>austriLoB</code>: Australian claim triangles.
+</p>
+</li>
+<li><p><code>ausprivauto</code>: Australian private motor datasets (by policy).
+</p>
+</li>
+<li><p><code>ausNSW</code>: New South Wales statistics.
+</p>
+</li></ul>
+
+</li>
+<li><p> Belgium:
+</p>
+
+<ul>
+<li><p><code>beaonre</code>: AON Re Belgium dataset.
+</p>
+</li>
+<li><p><code>besecura</code>: Secura Re Belgium dataset.
+</p>
+</li></ul>
+	
+</li>
+<li><p> Brazil:
+</p>
+
+<ul>
+<li><p><code>brgeomunic</code>: a geospatial dataset of Brazilian cities.
+</p>
+</li>
+<li><p><code>brgeomunicins</code>: a geospatial dataset of Brazilian cities with
+insurance indicators (exposure, claim frequency and premium).
+</p>
+</li>
+<li><p><code>brautocoll</code>: a Brazilian dataset of auto collision in Belo
+Horizonte during one month (categorical claim severity).
+</p>
+</li>
+<li><p><code>bragg</code>: aggregate Brazilian dataset per region.
+</p>
+</li>
+<li><p><code>brvehins1</code>: a Brazilian vehicle insurance datasets
+(by policy) with risk features except City.
+</p>
+</li>
+<li><p><code>brvehins2</code>: a Brazilian vehicle insurance datasets
+(by policy) with risk features including City.
+</p>
+</li></ul>
+
+</li>
+<li><p> Canada:
+</p>
+
+<ul>
+<li><p><code>canlifins</code>: A portfolio of a Canadian life insurer.
+</p>
+</li></ul>
+
+</li>
+<li><p> Danemark: 
+</p>
+
+<ul>
+<li><p><code>danishuni</code>, <code>danishmulti</code>: Danish reinsurance claim dataset.
+</p>
+</li></ul>
+
+</li>
+<li><p> European Union: 
+</p>
+
+<ul>
+<li><p><code>eudirectlapse</code>: lapse dataset.
+</p>
+</li></ul>
+
+</li>
+<li><p> France:
+</p>
+
+<ul>
+<li><p><code>freaggnumber</code>: a French aggregate claim number dataset.
+</p>
+</li>
+<li><p><code>frebiloss</code>: French business interruption losses.
+</p>
+</li>
+<li><p><code>freclaimset</code>, <code>freclaimset2</code>: French claim settlements.
+</p>
+</li>
+<li><p><code>frecomfire</code>: French commercial fire losses.
+</p>
+</li>
+<li><p><code>freDisTables</code>: French disability tables.
+</p>
+</li>
+<li><p><code>fremarine</code>: French marine claim dataset (by policy).
+</p>
+</li>
+<li><p><code>freMortTables</code>: French mortality tables.
+</p>
+</li>
+<li><p><code>fremotorclaim</code>: French private motor claim datasets (by policy).
+</p>
+</li>
+<li><p><code>freMTPL</code>: two French Motor-TPL claim datasets (by policy).
+</p>
+</li>
+<li><p><code>freMPL</code>: a collection of ten French Motor personal line datasets (by policy).
+</p>
+</li>
+<li><p><code>freportfolio</code>: fictive mortality tables and French
+nation-wide corresponding tables; two disability datasets from a French insurer.
+</p>
+</li>
+<li><p><code>fre4LoBtriangles</code>: A collection of triangles for 5
+line of business from a private insurer.
+</p>
+</li>
+<li><p><code>pricingame</code>: Datesets of Pricing Games of the
+French institute of Actuaries.    
+</p>
+</li></ul>
+
+</li>
+<li><p> Germany:
+</p>
+
+<ul>
+<li><p><code>credit</code>: A German Credit dataset.	
+</p>
+</li></ul>
+
+</li>
+<li><p> Italy:
+</p>
+
+<ul>
+<li><p><code>itamtplcost</code>: Large losses of an Italian Motor-TPL company.
+</p>
+</li></ul>
+
+</li>
+<li><p> New Zealand:
+</p>
+
+<ul>
+<li> <p><code>nzcathist</code>: Historical disaster statistics in New Zealand.
+</p>
+</li></ul>
+
+</li>
+<li><p> Norway:
+</p>
+
+<ul>
+<li><p><code>norauto</code>: Norwegian automobile dataset.
+</p>
+</li>
+<li><p><code>norfire</code>: Norwegian fire dataset.
+</p>
+</li>
+<li><p><code>Norberg</code>: Norberg's credibility dataset.
+</p>
+</li>
+<li><p><code>nortritpl8800</code>: Norwegian claim triangle.
+</p>
+</li></ul>
+
+</li>
+<li><p> Singapore:
+</p>
+
+<ul>
+<li><p><code>sgautonb</code>: Singapore Automobile claim count dataset.
+</p>
+</li>
+<li><p><code>sgtriangles</code>: Singapore Property and Casualty triangles.
+</p>
+</li></ul>
+
+</li>
+<li><p> Sweden:
+</p>
+
+<ul>
+<li><p><code>swautoins</code>: Swedish Motor Insurance dataset
+</p>
+</li>
+<li><p><code>swbusscase</code>: Swedish Buss Insurance dataset
+</p>
+</li>
+<li><p><code>swmotorcycle</code>: Swedish Motorcycle Insurance dataset
+</p>
+</li></ul>
+
+</li>
+<li><p> United Kingdom:
+</p>
+
+<ul>
+<li><p><code>ukaggclaim</code>: United Kingdom Car Insurance Claims.
+</p>
+</li>
+<li><p><code>ukautocoll</code>: United Kingdom Car Collision Insurance Claims.
+</p>
+</li></ul>
+
+</li>
+<li><p> United States of America:
+</p>
+
+<ul>
+<li><p><code>Davis</code>: Davis height-weight dataset.
+</p>
+</li>
+<li><p><code>ICB1</code>, <code>ICB2</code>: Insurance Company Benchmarks.
+</p>
+</li>
+<li><p><code>lossalae</code>,<code>lossalaefull</code>: General Third Part-liability claims and expenses.
+</p>
+</li>
+<li><p><code>SOAGMI</code>: SOA Group Medical Insurance dataset.
+</p>
+</li>
+<li><p><code>usautoBI</code>: Automobile Bodily Injuries in US.
+</p>
+</li>
+<li><p><code>usautotriangles</code>: US automobile triangles.
+</p>
+</li>
+<li><p><code>usexpense</code>: US expense dataset.
+</p>
+</li>
+<li><p><code>usGLtriangles</code>: US Property and Casualty triangles.
+</p>
+</li>
+<li><p><code>ushurricane</code>, <code>ushustormloss4980</code>:
+Historical hurricane statistics in United States of America.
+</p>
+</li>
+<li><p><code>uslapseagent</code>: US lapse dataset from tied-agent channel.
+</p>
+</li>
+<li><p><code>usmassBI</code>: US Massachusetts Automobile bodily injury claim datasets.
+</p>
+</li>
+<li><p><code>usmedclaim</code>: US medical claim triangle.
+</p>
+</li>
+<li><p><code>usMVTA</code>: US motor vehicle traffic accident.
+</p>
+</li>
+<li><p><code>usprivautoclaim</code>: private automobile claims.
+</p>
+</li>
+<li><p><code>usquakeLR</code>: California earthquake loss ratios.
+</p>
+</li>
+<li><p><code>ustermlife</code>: Term life insurance survey.
+</p>
+</li>
+<li><p><code>uswarrantaggnum</code>: US warranty automobile.
+</p>
+</li>
+<li><p><code>usworkcomp</code>: US workers compensation datasets.
+</p>
+</li></ul>
+
+</li>
+<li><p> Misc.: 	
+</p>
+
+<ul>
+<li><p><code>eqlist</code>: Earthquake list.
+</p>
+</li>
+<li><p><code>hurricanehist</code>: Hurricane history.
+</p>
+</li>
+<li><p><code>PnCdemand</code>: Property and Casualty demand.
+</p>
+</li>
+<li><p><code>spacedata</code>: Space dataset.
+</p>
+</li>
+<li><p><code>ECBYieldCurve</code>, <code>FedYieldCurve</code>Yield curve
+for eurozone and US.
+</p>
+</li>
+<li><p><code>forexUSUK</code>Foreign exchange rate between USD and GBP.
+</p>
+</li>
+<li><p>Use the HMD website for mortality tables <a href="https://www.mortality.org/">https://www.mortality.org/</a>.
+</p>
+</li></ul>
+
+</li></ul>
+
+<p>Here is a list of datasets whose name has changed compared to the book 'Computational Actuarial Science with R':'
+</p>
+
+<dl>
+<dt>Chapter 1:</dt><dd><p><code>extreme2datasince1899</code> is <code>hurricanehist</code>.</p>
+</dd>
+<dt>Chapter 5:</dt><dd><p><code>accidents</code> and <code>accidents_data</code> are merged in <code>brautocoll</code>;
+<code>55mu2500gsd</code> is <code>brgeomunic</code>;
+<code>sul_sp</code>, <code>sul+sp_shape</code> are stored in <code>brgeomunicins</code>;</p>
+</dd>
+<dt>Chapter 9:</dt><dd><p><code>MyPortfolio</code> is <code>freprojqxINSEE</code>.</p>
+</dd>
+<dt>Chapter 10:</dt><dd><p><code>DataMortality</code> is <code>freptfpermdis</code>.</p>
+</dd>
+<dt>Chapter 11:</dt><dd><p><code>DEXUSUK</code> is <code>forexUSUK</code>.</p>
+</dd>
+<dt>Chapter 14:</dt><dd><p><code>CONTRACTS</code> is <code>freMTPLfreq</code>; <code>CLAIMS</code> is <code>freMTPLsev</code>.</p>
+</dd>
+<dt>Chapter 15:</dt><dd><p><code>AutoClaimData</code> is <code>usmassBI2</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Arthur Charpentier, Christophe Dutang.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: New Zealand catastrophe historic</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>nzcathist {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nzcathist'>New Zealand catastrophe historic</h2>
+
+<h3>Description</h3>
+
+<p>Historical disaster statistics in Zealand from 1968 to 2014.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(nzcathist)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>nzcathist</code> is a data frame of 9 columns:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>a numeric for the Year.</p>
+</dd>
+<dt><code>Quarter</code></dt><dd><p>a numeric for the quarter of the year.</p>
+</dd>
+<dt><code>Date</code></dt><dd><p>a character string for the date.</p>
+</dd>
+<dt><code>FirstDay</code></dt><dd><p>a <code>Date</code> object for the first day of natural catastrophe.</p>
+</dd>
+<dt><code>Event</code></dt><dd><p>a character string describing the event.</p>
+</dd>
+<dt><code>Type</code></dt><dd><p>a factor describing the event type among the list:
+<code>"Cyclone"</code>, <code>"Earthquake"</code>,   <code>"Flood"</code>, <code>"Flood, Storm"</code>, <code>"Hailstorm"</code>,
+<code>"Other"</code>, <code>"Power outage"</code>, <code>"Storm"</code>, <code>"Tornado"</code>, <code>"Weather"</code>.</p>
+</dd>
+<dt><code>Location</code></dt><dd><p>a character string describing the location.</p>
+</dd>
+<dt><code>OriginalCost</code></dt><dd><p>Original cost in million of Australian dollars (NZD).</p>
+</dd>
+<dt><code>NormCost2011</code></dt><dd><p>Normed cost in million of 2011 New Zealand dollars (NZD).</p>
+</dd>
+<dt><code>NormCost2014</code></dt><dd><p>Normed cost in million of 2014 New Zealand dollars (NZD).</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://www.icnz.org.nz/natural-disasters">https://www.icnz.org.nz/natural-disasters</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(nzcathist)
+
+# (2) plot of data
+#
+plot(ecdf(nzcathist$NormCost2014))
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

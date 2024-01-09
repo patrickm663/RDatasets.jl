@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><title>R: French individual claim settlements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>freclaimset2 {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='freclaimset2'> French individual claim settlements </h2>
+
+<h3>Description</h3>
+
+<p>The dataset consists of claims settlements of the damage guarantee
+of a French insurer for motor insurance between 1995 and 2014.
+1,012,839 records for 735,079 claims are listed in the dataset in conjunction with
+some aggregated data (exposure, GWP, claim number) per occurence year.
+</p>
+<p><code>freclaimset3fire9207</code> and <code>freclaimset3dam9207</code> consist 
+of randomized claims settlements of the fire/damage guarantee
+of a French insurer for corporate insurance between 1992 and 2007.
+58,056 claims are listed in the dataset for which both paid and incurred (F/F)
+amounts (EUR) are available.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(freclaimset2motor)
+data(freclaimset3fire9207)
+data(freclaimset3dam9207)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>freclaimset2motor</code> is a list of two components.
+<code>freclaimset2motor$claimset</code> contains 8 columns:
+</p>
+
+<dl>
+<dt><code>ClaimID</code></dt><dd><p>The identification number of the claim, first four characters
+are the occurence year.</p>
+</dd>
+<dt><code>OccurYear</code></dt><dd><p>The occurence year.</p>
+</dd>
+<dt><code>ManagYear</code></dt><dd><p>The management year.</p>
+</dd>
+<dt><code>ClaimStatus</code></dt><dd><p>A character string for the claim status.</p>
+</dd>
+<dt><code>PaidAmount</code></dt><dd><p>The cumulative paid amount for the claim (euro).</p>
+</dd>
+<dt><code>RecourseAmount</code></dt><dd><p>The cumulative paid recourse for the claim (euro).</p>
+</dd>
+<dt><code>ExpectCharge</code></dt><dd><p>The expected amount for the claim (euro).</p>
+</dd>
+<dt><code>ExpectRecourse</code></dt><dd><p>The expected recourse for the claim (euro).</p>
+</dd>
+</dl>
+
+<p><code>freclaimset2motor$claimset</code> contains 4 columns:
+</p>
+
+<dl>
+<dt><code>Year</code></dt><dd><p>The management year.</p>
+</dd>
+<dt><code>Exposure</code></dt><dd><p>The sum of insurance years of the portfolio.</p>
+</dd>
+<dt><code>GWP</code></dt><dd><p>The gross written premium (in euro).</p>
+</dd>
+<dt><code>ClaimNb</code></dt><dd><p>The Claim Number.</p>
+</dd>
+</dl>
+
+<p><code>freclaimset3fire9207</code> and <code>freclaimset3dam9207</code> are data frames with 37 columns:
+</p>
+
+<dl>
+<dt><code>NbEmployee</code></dt><dd><p>The category of employee number.</p>
+</dd>
+<dt><code>NbSite</code></dt><dd><p>The category of site number.</p>
+</dd>
+<dt><code>Surface</code></dt><dd><p>The insured surface.</p>
+</dd>
+<dt><code>RiskCateg</code></dt><dd><p>An unknown risk category.</p>
+</dd>
+<dt><code>inc_Y15-inc_Y0</code></dt><dd><p><code>inc_Yj</code> is the incurred amount of 
+the claim at the end of year 2007-j, i.e. <code>inc_Y0</code> is the latest
+estimate and <code>inc_Y15</code> is the oldest estimate.
+</p>
+</dd>
+<dt><code>paid_Y15-paid_Y0</code></dt><dd><p><code>paid_Yj</code> is the paid amount of 
+the claim at the end of year 2007-j, i.e. <code>paid_Y0</code> is the latest
+estimate and <code>paid_Y15</code> is the oldest estimate.</p>
+</dd>
+<dt><code>OccurDate</code></dt><dd><p>The occurence date. 
+Note that <code>paid_Yj/inc_Yj</code> is never empty (i.e. <code>NA</code>)
+even if the claim did occur after the year 2007-j.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+<p>Unknown private insurers
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(freclaimset2motor)
+dim(freclaimset2motor)
+data(freclaimset3fire9207)
+data(freclaimset3dam9207)
+
+# (2) consistency check (should be the same)
+#
+
+somerow &lt;- freclaimset2motor$claimset$OccurYear == freclaimset2motor$claimset$ManagYear
+
+cbind(
+freclaimset2motor$aggdata$ClaimNb,
+table(freclaimset2motor$claimset[somerow, "OccurYear"])
+)
+
+# (3) some examples of claims
+#
+
+subset(freclaimset2motor$claimset, ClaimID == "1995-000127")
+
+subset(freclaimset2motor$claimset, ClaimID == "1996-008979")
+
+head(freclaimset3fire9207)
+tail(freclaimset3fire9207)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>

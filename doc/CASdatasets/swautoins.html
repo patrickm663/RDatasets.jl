@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Swedish Motor Insurance dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>swautoins {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='swautoins'>Swedish Motor Insurance dataset</h2>
+
+<h3>Description</h3>
+
+<p>This dataset contains motor insurance data collected in 1977
+in Sweden by the Swedish Committee on the Analysis of 
+Risk Premium.
+Records contains individuals characteristics in addition to 
+claim counts and severities.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(swautoins)
+</code></pre>
+
+
+<h3>Format</h3>
+
+ 
+<p><code>swautoins</code> is a data frame of 7 columns and 2,182 rows:
+</p>
+
+<dl>
+<dt><code>Kilometres</code></dt><dd><p>Distance driven by a vehicle, grouped into five categories.</p>
+</dd>
+<dt><code>Zone</code></dt><dd><p>Graphic zone of a vehicle, grouped into 7 categories.</p>
+</dd>
+<dt><code>Bonus</code></dt><dd><p>Driver claim experience, grouped into 7 categories.</p>
+</dd>
+<dt><code>Make</code></dt><dd><p>The type of a vehicle</p>
+</dd>
+<dt><code>Insured</code></dt><dd><p>The number of policyholder years. A policyholder year is
+the fraction of the year that the policyholder has a contract 
+with the issuing company. </p>
+</dd>
+<dt><code>Claims</code></dt><dd><p>Number of claims.</p>
+</dd>
+<dt><code>Payment</code></dt><dd><p>Sum of payments.</p>
+</dd>
+</dl>
+
+
+
+<h3>Source</h3>
+
+ 
+<p><a href="https://instruction.bus.wisc.edu/jfrees/jfreesbooks/">FreesBook-RMAFA</a>
+</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Frees, E.W. (2010), 
+<em>Regression modelling with actuarial and financial applications</em>,
+Cambridge University Press,
+<a href="https://doi.org/10.1017/CBO9780511814372">doi:10.1017/CBO9780511814372</a>.
+</p>
+<p>Hallin and Ingenbleek (1983),
+<em>The Swedish automobile portfolio in 1977. A statistical study</em>, 
+Scandinavian Actuarial Journal, 49-64,
+<a href="https://doi.org/10.1080/03461238.1983.10408691">doi:10.1080/03461238.1983.10408691</a>.
+</p>
+<p>Andrews and Herzberg (1985),
+<em>Data. A collection of problems from many fields for the student 
+and research worker</em>, Springer-Vedag, New York, pp. 4t3-421,
+<a href="https://doi.org/10.1080/00401706.1987.10488305">doi:10.1080/00401706.1987.10488305</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+# (1) load of data
+#
+data(swautoins)
+dim(swautoins)
+head(swautoins)
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.2 ]</div>
+</div>
+</body></html>
