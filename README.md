@@ -19,8 +19,8 @@ After installing the RDatasets package, you can then load data sets using the `d
 The `RDatasets.packages()` function returns a table of represented R packages:
 
 Package      | Title
--------------|------------------------------------------------------------------------
-CASdatasets  | Variety of insurance, financial, and actuarial datasets, originally for the book Computational Actuarial Science with R.
+-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CASdatasets  | A collection of datasets, originally for the book 'Computational Actuarial Science with R' edited by Arthur Charpentier. Now, the package contains a large variety of actuarial datasets.
 COUNT        | Functions, data and code for count data.
 Ecdat        | Data sets for econometrics.
 HSAUR        | A Handbook of Statistical Analyses Using R (1st Edition).
