@@ -22,3 +22,5 @@ function dataset(package_name::AbstractString, dataset_name::AbstractString)
     end
     error("Unable to locate dataset file $rdaname or $csvname")
 end
+
+df = dataset("datasets", "iris");

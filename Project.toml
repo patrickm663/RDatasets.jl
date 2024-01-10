@@ -4,6 +4,8 @@ version = "0.7.7"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+CodecBzip2 = "523fee87-0ab8-5b00-afb7-3ecf72e48cfd"
+CodecXz = "ba30903b-d9e8-5048-a5ec-d1f5b0d4b47b"
 CodecZlib = "944b1d66-785c-5afd-91f1-9de20f533193"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
